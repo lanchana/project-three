@@ -1,10 +1,15 @@
+require('dotenv').config();
+
 const express =require('express');
 const app = express();
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/web-app', () => {
-    console.log('Database is connected');
+mongoose.connect(process.env.MONGODB_URI);
+
+mongoose.connection.on ('error', (err) => {
+    console.log(err);
+    process.exit(-1);
 });
 
 app.use(express.static(__dirname + '/public'));

@@ -12,7 +12,7 @@ var ApplicationSchema = new Schema({
 
 var CompanySchema = new Schema({
     name: String,
-    application: [ApplicationSchema]
+    applications: [ApplicationSchema]
 });
 
 var UserSchema = new Schema({

@@ -28,9 +28,12 @@
     "webpack": "^2.3.3"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "glob": "^7.1.1",
+    "logger": "0.0.1",
+    "method-override": "^2.3.8",
     "mongoose": "^4.9.3"
   }
 }

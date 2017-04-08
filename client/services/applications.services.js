@@ -14,8 +14,9 @@ function ApplicationsService($http) {
         return $http.get('/api/applications/');
     }
 
-    function loadCurrent(id) {
-        return $http.get('/api/applications/')
+    function loadCurrent(companyId, appId) {
+        console.log(companyId + 'application services');
+        return $http.get('/api/applications/'+companyId+'/app/'+appId);
     }
 
 }

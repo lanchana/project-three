@@ -24,5 +24,11 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
         .state('userFavorite', {
             url:'/user/:id',
             template: '<user></user>'
+        })
+        .state('about', {
+            url: '/about',
+            template: '<about>About</about>'
         });
+
+        $urlRouterProvider.otherwise('/');
 }

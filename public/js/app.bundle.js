@@ -82,8 +82,9 @@ function ApplicationShowController($stateParams, ApplicationsService) {
 
     function loadCurrentApplication() {
         console.log($stateParams);
-        ApplicationsService.loadCurrent($stateParams.appId).then(function resolve(response) {
-            console.log(response.data);
+        ApplicationsService.loadCurrent($stateParams.companyId, $stateParams.appId).then(function resolve(response) {
+            console.log("app Show" + response.data.app);
+            vm.current = response.data.app;
         });
     }
 }
@@ -163,7 +164,12 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
     }).state('userFavorite', {
         url: '/user/:id',
         template: '<user></user>'
+    }).state('about', {
+        url: '/about',
+        template: '<about>About</about>'
     });
+
+    $urlRouterProvider.otherwise('/');
 }
 
 /***/ }),
@@ -264,8 +270,9 @@ function ApplicationsService($http) {
         return $http.get('/api/applications/');
     }
 
-    function loadCurrent(id) {
-        return $http.get('/api/applications/');
+    function loadCurrent(companyId, appId) {
+        console.log(companyId + 'application services');
+        return $http.get('/api/applications/' + companyId + '/app/' + appId);
     }
 }
 
@@ -38359,7 +38366,7 @@ module.exports = angular;
 /* 18 */
 /***/ (function(module, exports) {
 
-module.exports = "";
+module.exports = "<div class=\"ApplicationShow\">\n   Name:  {{$ctrl.current.name}} <br>\n   Description:  {{$ctrl.current.description}}<br>\n   Download link: {{$ctrl.current.downloadUrl}}<br>\n   Download Logo: {{$ctrl.current.logo}}<br>\n</div>";
 
 /***/ }),
 /* 19 */

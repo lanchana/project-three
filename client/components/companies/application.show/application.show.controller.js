@@ -11,10 +11,11 @@ function ApplicationShowController($stateParams, ApplicationsService) {
     function loadCurrentApplication() {
         console.log($stateParams);
         ApplicationsService
-            .loadCurrent($stateParams.appId)
+            .loadCurrent($stateParams.companyId, $stateParams.appId)
             .then(function resolve(response) {
-                console.log(response.data);
-            });
+                console.log("app Show" + response.data.app);
+                vm.current = response.data.app;
+            })
     }
 }
 

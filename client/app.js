@@ -13,6 +13,10 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
             url: '/',
             template: '<home></home>'
         })
+        .state('signUp', {
+            url: '/signup',
+            template: '<sign-up></sign-up>'
+        })
         .state('applications', {
             url:'/applications',
             template:'<applications></applications>'

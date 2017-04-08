@@ -88,6 +88,11 @@ var companies = [{
 
 Company.remove({})
     .then(function() {
+        // company = {}
+        // Company.create(company)
+
+        // companies = []
+        // behind the scenes there is a .forEach
         return Company.create(companies);
     })
     .then(function(companies){

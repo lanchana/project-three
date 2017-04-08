@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 22);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -131,21 +131,21 @@ module.exports = HomeController;
 /* 3 */
 /***/ (function(module, exports) {
 
-UserController.$inject = ['UserService'];
+UserFavoriteController.$inject = ['UserService'];
 
-function UserController(UserService) {
+function UserFavoriteController(UserService) {
     const vm = this;
     console.log('im in user controller');
 }
 
-module.exports = UserController;
+module.exports = UserFavoriteController;
 
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const angular = __webpack_require__(17);
-__webpack_require__(15);
+const angular = __webpack_require__(15);
+__webpack_require__(13);
 
 angular.module('projectThree', ['ui.router']).config(uiRouterSetup);
 
@@ -177,7 +177,7 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(0);
-const template = __webpack_require__(18);
+const template = __webpack_require__(16);
 
 const Component = {
     controller: controller,
@@ -191,7 +191,7 @@ angular.module('projectThree').component('applicationShow', Component);
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(1);
-const template = __webpack_require__(19);
+const template = __webpack_require__(17);
 
 const Component = {
     controller: controller,
@@ -205,7 +205,7 @@ angular.module('projectThree').component('applications', Component);
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(2);
-const template = __webpack_require__(20);
+const template = __webpack_require__(18);
 
 const Component = {
     controller: controller,
@@ -228,22 +228,10 @@ angular.module('projectThree').component('home', Component);
 
 /***/ }),
 /* 10 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(3);
-const template = __webpack_require__(21);
+const template = __webpack_require__(19);
 
 const Component = {
     controller: controller,
@@ -253,7 +241,7 @@ const Component = {
 angular.module('projectThree').component('user', Component);
 
 /***/ }),
-/* 13 */
+/* 11 */
 /***/ (function(module, exports) {
 
 angular.module('projectThree').service('ApplicationsService', ApplicationsService);
@@ -277,7 +265,7 @@ function ApplicationsService($http) {
 }
 
 /***/ }),
-/* 14 */
+/* 12 */
 /***/ (function(module, exports) {
 
 angular.module('projectThree').service('UserService', UserService);
@@ -286,10 +274,16 @@ UserService.$inject = ['$http'];
 
 function UserService($http) {
     const self = this;
+
+    self.createNewUser = createNewUser;
+
+    function createNewUser(newUser) {
+        console.log("add user");
+    }
 }
 
 /***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports) {
 
 /**
@@ -4978,7 +4972,7 @@ angular.module('ui.router.state')
 })(window, window.angular);
 
 /***/ }),
-/* 16 */
+/* 14 */
 /***/ (function(module, exports) {
 
 /**
@@ -38355,39 +38349,39 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 17 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(16);
+__webpack_require__(14);
 module.exports = angular;
 
 
 /***/ }),
-/* 18 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"ApplicationShow\">\n   Name:  {{$ctrl.current.name}} <br>\n   Description:  {{$ctrl.current.description}}<br>\n   Download link: {{$ctrl.current.downloadUrl}}<br>\n   Download Logo: {{$ctrl.current.logo}}<br>\n</div>";
 
 /***/ }),
-/* 19 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = "<ul>\n    <li ng-repeat=\"company in $ctrl.companies\">\n        {{ company.name }} -- apps:\n        <span ng-repeat=\"app in company.applications\">\n         <br>{{ app.name }} <a ui-sref=\"applicationShow({companyId: company._id, appId: app._id})\">Click here to see the details</a>\n        </span>\n        <hr>\n    </li>\n</ul>";
 
 /***/ }),
-/* 20 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = "<div>\n    <h1>Home</h1>\n</div>";
 
 /***/ }),
-/* 21 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = "<h1>user Contoller</h1>";
 
 /***/ }),
-/* 22 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(4);
@@ -38400,11 +38394,9 @@ __webpack_require__(2);
 __webpack_require__(8);
 __webpack_require__(9);
 __webpack_require__(10);
-__webpack_require__(11);
-__webpack_require__(12);
 __webpack_require__(3);
-__webpack_require__(13);
-module.exports = __webpack_require__(14);
+__webpack_require__(11);
+module.exports = __webpack_require__(12);
 
 
 /***/ })

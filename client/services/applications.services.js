@@ -8,7 +8,7 @@ function ApplicationsService($http) {
     const self = this;
 
     self.loadAll = loadAll;
-    self.loadCurrent =loadCurrent;
+    self.loadCurrent = loadCurrent;
 
     function loadAll() {
         return $http.get('/api/applications/');

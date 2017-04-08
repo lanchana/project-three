@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     Company.find({})
             .exec((err, companies) => {
                 if(err) console.log(err);
-                res.json({companies: companies}).select('-__v');
+                res.json({companies: companies});
             })
 });
 

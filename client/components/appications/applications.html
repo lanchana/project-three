@@ -1,0 +1,8 @@
+<ul>
+    <li ng-repeat="company in $ctrl.companies">
+        {{ company.name }} -- apps:
+        <span ng-repeat="app in company.applications">
+         | {{ app.name }}
+        </span>
+    </li>
+</ul>

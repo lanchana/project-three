@@ -15,14 +15,14 @@ router.get('/:id', authHelper.createSecure, (req, res) => {
 
 router.post('/', authHelper.createSecure, (req, res) => {
     var query = {'email' : req.body.email};
-
+    
     User.findOne(query, (err, item) => {
         if(err) console.log(err);
         if(!item) {
             var user = new User({
                 name: req.body.name,
                 email: req.body.email,
-                password: req.body.password
+                password: res.hashedPassword
             });
             user.save((err, user) => {
                 if(err) console.log(err);

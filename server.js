@@ -1,9 +1,16 @@
 require('dotenv').config();
 
+const session = require('express-session');
 const express =require('express');
 const app = express();
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+
+app.use(session({
+	secret: 'ourprojectissupersecret',
+	resave: false,
+	saveUninitalized: false
+}));
 
 var mongoose = require('mongoose');
 
@@ -27,7 +34,7 @@ app.get('/', function(req, res) {
 });
 
 var userController = require('./controllers/user.js');
-app.use('/user', userController);
+app.use('/api/user', userController);
 
 var applicationController = require('./controllers/applications.js');
 app.use('/api/applications', applicationController);

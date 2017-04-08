@@ -63,11 +63,35 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 19);
+/******/ 	return __webpack_require__(__webpack_require__.s = 22);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+ApplicationShowController.$inject = ['$stateParams', 'ApplicationsService'];
+
+function ApplicationShowController($stateParams, ApplicationsService) {
+    const vm = this;
+    activate();
+
+    function activate() {
+        loadCurrentApplication();
+    }
+
+    function loadCurrentApplication() {
+        console.log($stateParams);
+        ApplicationsService.loadCurrent($stateParams.appId).then(function resolve(response) {
+            console.log(response.data);
+        });
+    }
+}
+
+module.exports = ApplicationShowController;
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 ApplicationsController.$inject = ['ApplicationsService'];
@@ -92,7 +116,7 @@ function ApplicationsController(ApplicationsService) {
 module.exports = ApplicationsController;
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports) {
 
 function HomeController() {
@@ -103,7 +127,7 @@ function HomeController() {
 module.exports = HomeController;
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 UserController.$inject = ['UserService'];
@@ -116,11 +140,11 @@ function UserController(UserService) {
 module.exports = UserController;
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const angular = __webpack_require__(15);
-__webpack_require__(13);
+const angular = __webpack_require__(17);
+__webpack_require__(15);
 
 angular.module('projectThree', ['ui.router']).config(uiRouterSetup);
 
@@ -132,19 +156,36 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
         template: '<home></home>'
     }).state('applications', {
         url: '/applications',
-        teplate: '<applications></applications>'
-    }).state('user', {
+        template: '<applications></applications>'
+    }).state('applicationShow', {
+        url: '/applications/:companyId/app/:appId',
+        template: '<application-show></application-show>'
+    }).state('userFavorite', {
         url: '/user/:id',
         template: '<user></user>'
     });
 }
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(0);
-const template = __webpack_require__(16);
+const template = __webpack_require__(18);
+
+const Component = {
+    controller: controller,
+    template: template
+};
+
+angular.module('projectThree').component('applicationShow', Component);
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(1);
+const template = __webpack_require__(19);
 
 const Component = {
     controller: controller,
@@ -154,11 +195,11 @@ const Component = {
 angular.module('projectThree').component('applications', Component);
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(1);
-const template = __webpack_require__(17);
+const controller = __webpack_require__(2);
+const template = __webpack_require__(20);
 
 const Component = {
     controller: controller,
@@ -166,18 +207,6 @@ const Component = {
 };
 
 angular.module('projectThree').component('home', Component);
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-
 
 /***/ }),
 /* 8 */
@@ -193,10 +222,22 @@ angular.module('projectThree').component('home', Component);
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(2);
-const template = __webpack_require__(18);
+const controller = __webpack_require__(3);
+const template = __webpack_require__(21);
 
 const Component = {
     controller: controller,
@@ -206,7 +247,7 @@ const Component = {
 angular.module('projectThree').component('user', Component);
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports) {
 
 angular.module('projectThree').service('ApplicationsService', ApplicationsService);
@@ -217,14 +258,19 @@ function ApplicationsService($http) {
     const self = this;
 
     self.loadAll = loadAll;
+    self.loadCurrent = loadCurrent;
 
     function loadAll() {
-        return $http.get('/applications/');
+        return $http.get('/api/applications/');
+    }
+
+    function loadCurrent(id) {
+        return $http.get('/api/applications/');
     }
 }
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports) {
 
 angular.module('projectThree').service('UserService', UserService);
@@ -236,7 +282,7 @@ function UserService($http) {
 }
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports) {
 
 /**
@@ -4925,7 +4971,7 @@ angular.module('ui.router.state')
 })(window, window.angular);
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports) {
 
 /**
@@ -38302,48 +38348,56 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(14);
+__webpack_require__(16);
 module.exports = angular;
 
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-module.exports = "<ul>\n    <li ng-repeat=\"company in $ctrl.companies\">\n        {{ company.name }} -- apps:\n        <span ng-repeat=\"app in company.applications\">\n         | {{ app.name }}\n        </span>\n    </li>\n</ul>";
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-module.exports = "<div>\n    <h1>Home</h1>\n</div>";
 
 /***/ }),
 /* 18 */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>user Contoller</h1>";
+module.exports = "";
 
 /***/ }),
 /* 19 */
+/***/ (function(module, exports) {
+
+module.exports = "<ul>\n    <li ng-repeat=\"company in $ctrl.companies\">\n        {{ company.name }} -- apps:\n        <span ng-repeat=\"app in company.applications\">\n         <br>{{ app.name }} <a ui-sref=\"applicationShow({companyId: company._id, appId: app._id})\">Click here to see the details</a>\n        </span>\n        <hr>\n    </li>\n</ul>";
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <h1>Home</h1>\n</div>";
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>user Contoller</h1>";
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(3);
 __webpack_require__(4);
-__webpack_require__(0);
 __webpack_require__(5);
-__webpack_require__(1);
+__webpack_require__(0);
 __webpack_require__(6);
+__webpack_require__(1);
 __webpack_require__(7);
+__webpack_require__(2);
 __webpack_require__(8);
 __webpack_require__(9);
 __webpack_require__(10);
-__webpack_require__(2);
 __webpack_require__(11);
-module.exports = __webpack_require__(12);
+__webpack_require__(12);
+__webpack_require__(3);
+__webpack_require__(13);
+module.exports = __webpack_require__(14);
 
 
 /***/ })

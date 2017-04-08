@@ -2,7 +2,8 @@
     <li ng-repeat="company in $ctrl.companies">
         {{ company.name }} -- apps:
         <span ng-repeat="app in company.applications">
-         | {{ app.name }}
+         <br>{{ app.name }} <a ui-sref="applicationShow({companyId: company._id, appId: app._id})">Click here to see the details</a>
         </span>
+        <hr>
     </li>
 </ul>

@@ -8,8 +8,14 @@ function ApplicationsService($http) {
     const self = this;
 
     self.loadAll = loadAll;
+    self.loadCurrent =loadCurrent;
 
     function loadAll() {
-        return $http.get('/applications/');
+        return $http.get('/api/applications/');
     }
+
+    function loadCurrent(id) {
+        return $http.get('/api/applications/')
+    }
+
 }

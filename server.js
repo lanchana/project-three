@@ -30,7 +30,7 @@ var userController = require('./controllers/user.js');
 app.use('/user', userController);
 
 var applicationController = require('./controllers/applications.js');
-app.use('/applications', applicationController);
+app.use('/api/applications', applicationController);
 
 app.listen(process.env.PORT || 5000, () => {
     console.log('I\'m listening on 5000');

@@ -17,6 +17,8 @@ function ApplicationsController(ApplicationsService) {
                 vm.companies = response.data.companies;
             })
     }
+
+
 }
 
 module.exports = ApplicationsController;

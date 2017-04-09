@@ -2,10 +2,16 @@
 	<form ng-submit='$ctrl.createNewUser()' method="POST">
 	Name:
 		<input type="text" ng-model='$ctrl.newUser.name' placeholder="Please Enter Your Name"></br>
-	Email:	
+	Email:
 		<input type="text" ng-model='$ctrl.newUser.email' placeholder="Please Enter Your Email"></br>
-	Password:	
+	Password:
 		<input type="text" ng-model='$ctrl.newUser.password' placeholder="Create a Password"></br>
 		<input type="submit" value="Sign Up">
-	</form>	
+        <div>
+            <span ng-hide="$ctrl.created">This email is already registered</span>
+        </div>
+        <div>
+            <span>Have an account? <a ui-sref="login">LogIn</a></span>
+        </div>
+	</form>
 </div>

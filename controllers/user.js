@@ -27,7 +27,7 @@ router.post('/', authHelper.createSecure, (req, res) => {
             });
             user.save((err, user) => {
                 if(err) console.log(err);
-                res.json({message: 'User acount created'});
+                res.json({success: 'User acount created'});
             })
         } else {
             res.json({message: 'This user email already registered'});

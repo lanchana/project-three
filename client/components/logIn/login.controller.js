@@ -1,10 +1,11 @@
-UserLogin.inject = ['$stateParams', 'UserService', '$state'];
+UserLogin.inject = ['$stateParams', 'UserService', '$state', '$scope'];
 
-function UserLogin($stateParams, UserService, $state) {
+function UserLogin($stateParams, UserService, $state, $scope) {
     var vm = this;
     vm.checkUser = {};
     vm.invalid = false;
     vm.userLogin = userLogin;
+    $scope.userLogedIn = 'blah';
 
     function userLogin(currentUser) {
         console.log(currentUser);
@@ -19,6 +20,7 @@ function UserLogin($stateParams, UserService, $state) {
 
                 } else if(response.data.user) {
                     vm.invalid = false;
+                    vm.userLogedIn = true;
                     var id =response.data.user._id;
                     $state.go('user',({id: id}));
                     // console.log(response.data.user);

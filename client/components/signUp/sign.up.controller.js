@@ -5,15 +5,25 @@ function UserSignUpController(UserService, $state){
 
 	vm.newUser = {};
 	vm.createNewUser = CreateNewUser;
+	vm.created = true;
 
 	activate();
 	function activate() {}
 
-	function CreateNewUser(newUser){		
+	function CreateNewUser(newUser){
 		UserService
 			.createNewUser(vm.newUser)
-			.then(function toLogin(){
-				$state.go('login')  // Name of the state might change, come back to match up state names
+			.then(function toLogin(response){
+				console.log(response);
+				if(response.data.success){
+
+				$state.go('login');
+				}
+				else {
+					vm.created = false;
+					$state.go('signUp');
+
+				} // Name of the state might change, come back to match up state names
 		});
 	}
 }

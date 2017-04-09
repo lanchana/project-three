@@ -39,6 +39,9 @@ app.use('/api/user', userController);
 var applicationController = require('./controllers/applications.js');
 app.use('/api/applications', applicationController);
 
+var sessionsRouter = require('./controllers/sessions.js');
+app.use('/api/sessions', sessionsRouter);
+
 app.listen(process.env.PORT || 5000, () => {
     console.log('I\'m listening on 5000');
 });

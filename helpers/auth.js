@@ -9,22 +9,33 @@ function createSecure(req, res, next) {
 }
 
 function loginUser(req, res, next) {
+
     var email = req.body.email;
     var password = req.body.password;
 
     User.findOne({email: email})
         .then((foundUser) => {
+             console.log('auth : '+ foundUser.password );
             if(foundUser == null) {
+                console.log('no.. i am not in');
+                // res.json({ message: '-1'});
                 req.error = 'Invalid User Name or Password';
-            } else if(bcrypt.cpmpareSync(password, foundUser.password)) {
+            } else if(bcrypt.compareSync(password, foundUser.password)) {
+                console.log('yes i am in');
                 req.session.currentUser = foundUser;
+
             } else {
+                console.log('no.. i am not in');
+                // res.json({message: '-1'})
                 req.error = 'Invalid User Name or Password';
             }
             next();
         })
         .catch((err) => {
-            res.json({status: 500, data: err});
+            console.log('no.. i am not in: '+ err);
+            res.json({status: 500, message: 'Invalid User Name or Password'});
+            // req.eror = 'Invalid User Name or Password';
+            // res.json({status: 500, data: err});
         });
 }
 

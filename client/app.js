@@ -17,6 +17,10 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
             url: '/signup',
             template: '<sign-up></sign-up>'
         })
+        .state('login', {
+            url: '/login',
+            template: '<login></login>'
+        })
         .state('applications', {
             url:'/applications',
             template:'<applications></applications>'
@@ -25,7 +29,7 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
             url: '/applications/:companyId/app/:appId',
             template: '<application-show></application-show>'
         })
-        .state('userFavorite', {
+        .state('user', {
             url:'/user/:id',
             template: '<user></user>'
         });

@@ -5,14 +5,20 @@ var authHelper = require('../helpers/auth.js');
 
 router.get('/login', (req, res) => {
     // where to redirect when there is an error
+    console.log('sessions in');
+    res.json({message: 'invaid username or password'});
 });
 
 router.post('/login', authHelper.loginUser, (req, res) => {
     if(req.error) {
         // res.redirect('/sessions/logi')
         // where to redirect in case of error
+        console.log('inside sessions error');
+        res.json({message: 'invaid username or password'});
     }
-    else if {
+    else {
+        console.log('session no error');
+        res.redirect('/api/user/' + req.session.currentUser._id + '?error=' + req.error);
         // response with this '/' + req.session.currentUser._id + '?error=' + req.error
     }
 });

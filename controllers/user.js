@@ -6,16 +6,17 @@ var User = require('../models/user.js');
 var authHelper = require('../helpers/auth.js');
 
 router.get('/:id', authHelper.createSecure, (req, res) => {
+    console.log('im in user account'+ req.params.id);
     User.findById(req.params.id)
         .exec((err, user) => {
             if(err) res.json({message: 'Invalid user name or password:'+err});
-            res.json({user: user}).select('-__v');
+            res.json({user: user});
         });
 });
 
 router.post('/', authHelper.createSecure, (req, res) => {
     var query = {'email' : req.body.email};
-    
+
     User.findOne(query, (err, item) => {
         if(err) console.log(err);
         if(!item) {

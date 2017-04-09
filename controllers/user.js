@@ -5,7 +5,7 @@ var methodOverride = require('method-override');
 var User = require('../models/user.js');
 var authHelper = require('../helpers/auth.js');
 
-router.get('/:id', authHelper.createSecure, (req, res) => {
+router.get('/:id', authHelper.authorized, (req, res) => {
     console.log('im in user account'+ req.params.id);
     User.findById(req.params.id)
         .exec((err, user) => {

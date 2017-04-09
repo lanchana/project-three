@@ -43,7 +43,7 @@ var companies = [{
             name: "SmartOS",
             logo: "http://i.imgur.com/0crNTZ1.png",
             downloadUrl: "https://wiki.smartos.org/display/DOC/Download+SmartOS",
-            description: "Triton SmartOS combines the capabilities you get from a lightweight container OS, optimized to deliver containers, with the robust security, networking and storage capabilities you’ve come to expect and depend on from a hardware hypervisor."
+            description: "blah blahhhhh"
         }
     ]
 },

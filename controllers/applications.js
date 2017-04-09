@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.get('/:companyId/app/:appId', (req, res) => {
     Company.findById(req.params.companyId)
             .exec((err, company) => {
-                if(err) res.json({message: 'coudnot not find company bcoz' + err});
+                if(err) res.json({message: 'could not not find company because' + err});
                 var app = company.applications.id(req.params.appId);
 
                 res.json({app: app});

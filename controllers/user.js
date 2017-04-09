@@ -5,7 +5,7 @@ var methodOverride = require('method-override');
 var User = require('../models/user.js');
 var authHelper = require('../helpers/auth.js');
 
-router.get('/:id', authHelper.createSecure, (req, res) => {
+router.get('/:id', (req, res) => {
     User.findById(req.params.id)
         .exec((err, user) => {
             if(err) res.json({message: 'Invalid user name or password:'+err});
@@ -15,7 +15,7 @@ router.get('/:id', authHelper.createSecure, (req, res) => {
 
 router.post('/', authHelper.createSecure, (req, res) => {
     var query = {'email' : req.body.email};
-    
+
     User.findOne(query, (err, item) => {
         if(err) console.log(err);
         if(!item) {

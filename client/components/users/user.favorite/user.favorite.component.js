@@ -8,4 +8,4 @@ const Component = {
 
 angular
     .module('projectThree')
-    .component('user', Component);
+    .component('userFavorite', Component);

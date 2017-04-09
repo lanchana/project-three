@@ -26,7 +26,7 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
             template: '<application-show></application-show>'
         })
         .state('userFavorite', {
-            url:'/user/:id',
-            template: '<user></user>'
+            url:'/user/:userId',
+            template: '<user-favorite></user-favorite>'
         });
 }

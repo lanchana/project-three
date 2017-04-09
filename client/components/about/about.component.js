@@ -1,5 +1,5 @@
 const controller = require('./about.controller.js');
-const template = require('./about.html.js');
+const template = require('./about.html');
 
 const AboutComponent = {
 	controller: controller,

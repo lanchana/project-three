@@ -1,7 +1,7 @@
 const controller = require('./about.controller.js');
 const template = require('./about.html');
 
-const AboutComponent = {
+const Component = {
     controller: controller,
     template: template
 
@@ -9,4 +9,4 @@ const AboutComponent = {
 
 angular
     .module('projectThree')
-    .component('about', AboutComponent);
+    .component('about', Component);

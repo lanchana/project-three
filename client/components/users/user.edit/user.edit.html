@@ -1,0 +1,14 @@
+<div>
+  <form ng-submit='$ctrl.editUser($ctrl.current)'>
+
+  Name:
+  <input type="text" ng-model='$ctrl.current.name'>
+
+  Email:
+  <input type="text" ng-model='$ctrl.current.email'>
+
+  <input type="submit" value="update">
+  </form>
+  Delete this account:
+  <button ng-click='$ctrl.deleteUser($ctrl.current)'>delete</button>
+</div>

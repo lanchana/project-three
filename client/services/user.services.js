@@ -22,18 +22,14 @@ function UserService($http) {
     }
 
     function checkUser(currentUser) {
-        console.log(currentUser);
         return $http.post('/api/sessions/login',currentUser);
     }
 
     function favoriteApps(id) {
-        console.log('user services: '+id);
         return $http.get('/api/applications/user/'+id);
     }
 
     function favDelete(userId, favId) {
-        console.log('in user service');
-        // return 'blah';
         return $http.delete('/api/applications/user/'+userId+'/fav/'+favId);
     }
 
@@ -46,11 +42,10 @@ function UserService($http) {
     }
 
     function loadCurrentUser(id) {
-        console.log(id);
         return $http.get('/api/user/edit/' + id);
     }
+    
     function deleteUser(user) {
-        console.log("from delete user " + user._id)
         return $http.delete('/api/user/' +user._id);
     }
 }

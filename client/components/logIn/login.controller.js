@@ -9,12 +9,9 @@ function UserLogin($stateParams, UserService, $state, $scope) {
     vm.id = {};
 
     function userLogin(currentUser) {
-        console.log(currentUser);
         UserService.checkUser(currentUser)
             .then(function resolve(response){
-                console.log(response.data);
                 if(response.data.message) {
-                    console.log(response.data.message);
                     vm.checkUser = {};
                     vm.invalid = true;
                     $state.go('login');
@@ -24,10 +21,8 @@ function UserLogin($stateParams, UserService, $state, $scope) {
                     vm.userLogedIn = true;
                     vm.id =response.data.user._id;
                     $state.go('user',({id: vm.id}));
-                    // console.log(response.data.user);
-                    // UserFavoriteController.userFavorite(id);
                 }
-            });
+        });
     }
 }
 

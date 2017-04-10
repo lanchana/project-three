@@ -14,16 +14,13 @@ function UserSignUpController(UserService, $state){
 		UserService
 			.createNewUser(vm.newUser)
 			.then(function toLogin(response){
-				console.log(response);
 				if(response.data.success){
-
 				$state.go('login');
 				}
 				else {
 					vm.created = false;
 					$state.go('signUp');
-
-				} // Name of the state might change, come back to match up state names
+				}
 		});
 	}
 }

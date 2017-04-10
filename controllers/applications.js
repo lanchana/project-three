@@ -61,6 +61,7 @@ router.delete('/user/:userId/fav/:favId', (req, res) => {
     User.findById(req.params.userId)
     .exec((err, user) => {
         var fav = user.favorite.id(req.params.favId);
+        user.favorite.pull(req.params.favId);
         user.save();
         res.json({app: 'App deleted suc'});
     });

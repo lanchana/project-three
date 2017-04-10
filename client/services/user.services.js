@@ -44,6 +44,7 @@ function UserService($http) {
     function loadCurrentUser(id) {
         return $http.get('/api/user/edit/' + id);
     }
+    
     function deleteUser(user) {
         return $http.delete('/api/user/' +user._id);
     }

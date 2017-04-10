@@ -1,4 +1,8 @@
-<nav><a></a><a ng-click="$ctrl.deleteSession()" ui-sref="home">logout</a> | <a ui-sref="applications({id:$ctrl.id})">application</a></nav>
+
+
+<pre>{{ $ctrl | json }}</pre>
+<nav>
+<a></a><a ng-click="$ctrl.deleteSession()" ui-sref="home">logout</a> | <a ui-sref="applications({id:$ctrl.id})">application</a></nav>
 <h1>user Contoller</h1>
 <!-- {{$ctrl.id}} -->
 <!-- {{$rootScope.id}} -->
@@ -17,3 +21,5 @@
         <hr>
     </li>
 </ul>
+
+<a ui-sref="userEdit({id:$ctrl.userId})">edit profile</a>

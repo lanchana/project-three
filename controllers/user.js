@@ -6,6 +6,15 @@ var User = require('../models/user.js');
 var authHelper = require('../helpers/auth.js');
 var Favorite = require('../models/favorite.js');
 
+router.get('/edit/:id', function(req, res) {
+    var id = req.params.id;
+    console.log('user get route');
+    User.findById({_id: id}, function(err, user) {
+        if(err) res.json({err});
+        console.log(user);
+        res.json({user: user});
+    })
+});
 
 router.get('/:id', authHelper.createSecure, (req, res) => {
     console.log('im in user account'+ req.params.id);

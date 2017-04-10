@@ -1,21 +1,22 @@
 UserFavoriteController.$inject = ['UserService', '$stateParams'];
 
 function UserFavoriteController(UserService, $stateParams) {
-    const vm =this;
+    const vm = this;
+    const id = $stateParams.id;
     console.log('im in user controller: '+ $stateParams.id);
     // vm.userFavorite = userFavorite;
     // $rootScope.id = $stateParams.id;
-    vm.id = $stateParams.id;
+    vm.userId = id;
     vm.userFavDelete = userFavDelete;
     vm.deleteSession = deleteSession;
     vm.favApps = {}
     userFavorite();
     function userFavorite() {
         console.log('inside user fav');
-        // console.log(vm.id);
+        // console.log(id);
         // console.log(id);
         UserService
-            .favoriteApps(vm.id)
+            .favoriteApps(id)
             .then(function resolve(response) {
                 // console.log(response.data.favoriteApp);
                 vm.favApps = response.data.favoriteApp;

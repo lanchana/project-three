@@ -25,7 +25,7 @@ function loginUser(req, res, next) {
         .then((foundUser) => {
              console.log('auth : '+ foundUser.password );
             if(foundUser == null) {
-                console.log('no.. i am not in');
+                console.log('first no.. i am not in');
                 // res.json({ message: '-1'});
                 req.error = 'Invalid User Name or Password';
             } else if(bcrypt.compareSync(password, foundUser.password)) {
@@ -33,7 +33,7 @@ function loginUser(req, res, next) {
                 req.session.currentUser = foundUser;
 
             } else {
-                console.log('no.. i am not in');
+                console.log(' second no.. i am not in');
                 // res.json({message: '-1'})
                 req.error = 'Invalid User Name or Password';
             }

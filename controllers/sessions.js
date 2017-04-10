@@ -26,6 +26,7 @@ router.post('/login', authHelper.loginUser, (req, res) => {
 router.delete('/', (req, res) => {
     req.session.destroy(() => {
         // where to redirect after killing session
+        res.json({message: "session is deleted"});
     });
 });
 

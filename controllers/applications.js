@@ -19,32 +19,34 @@ router.get('/', (req, res) => {
 router.get('/user/:userId', (req, res) => {
     console.log('I am hitting router');
     var matchApp = [];
+    var matchapp1 = [];
     User.findById(req.params.userId)
         .exec((err, user) => {
             if(err) console.log(err);
             Company.find({})
                     .exec((err, companies) => {
                         if(err) console.log(err);
-                        // console.log(companies);
-                        // console.log(companies[0].applications);
                         for(var i =0; i< user.favorite.length; i++) {
                             for(var j =0; j < companies.length; j++){
                                 if(user.favorite[i].companyId == companies[j]._id){
-                                    // console.log('match' +companies[j].applications.length);
                                     for(var k = 0; k< companies[j].applications.length; k++) {
                                         // console.log(companies[j].applications[k]);
                                         if(user.favorite[i].appId == companies[j].applications[k]._id) {
                                             // console.log("Match: " + companies[j].applications[k]);
-                                            matchApp.push(companies[j].applications[k]);
+                                            matchApp.push({
+                                                _id: companies[j].applications[k]._id,
+                                                description: companies[j].applications[k].description,
+                                                downloadUrl: companies[j].applications[k].downloadUrl,
+                                                logo: companies[j].applications[k].logo,
+                                                name: companies[j].applications[k].name,
+                                                favId: user.favorite[i]._id
+                                            });
                                         }
                                     }
 
                                 }
                             }
-                            // console.log(user.favorite[i]);
                         }
-                        // console.log(matchApp[0]);
-                        // console.log(matchApp.length);
                         res.json({favoriteApp: matchApp});
                     });
         });
@@ -60,5 +62,23 @@ router.get('/:companyId/app/:appId', (req, res) => {
                 res.json({app: app});
             });
 });
+
+router.delete('/user/:userId/fav/:favId', (req, res) => {
+    console.log("Delete fav: "+req.params.userId+': '+req.params.favId);
+    User.findById(req.params.userId)
+    .exec((err, user) => {
+        var fav = user.favorite.id(req.params.favId);
+        console.log(fav);
+        console.log('identicle' + user.favorite.pull(req.params.favId));
+        user.save();
+        // Deletes the specific photo based on its id
+        // place.photos.pull(req.params.id)
+        // Saves the changes made into database
+        // user.save();
+        // Redirects to the same page to delete more photos
+        // res.redirect('/'+req.params.userId+'/'+req.params.placesId+'/photos/edit')
+        res.json({app: 'App deleted suc'});
+    });
+})
 
 module.exports = router;

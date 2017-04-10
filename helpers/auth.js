@@ -3,8 +3,9 @@ var User = require('../models/user.js');
 
 function createSecure(req, res, next) {
     var password = req.body.password;
-
-    res.hashedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+    var hash = bcrypt.hashSync("baconTableOfBaconOfRainbows");
+    console.log('password create secure' + password);
+    res.hashedPassword = bcrypt.hashSync(password, hash);
     next();
 }
 
@@ -40,7 +41,7 @@ function loginUser(req, res, next) {
 }
 
 function authorized(req, res, next) {
-    var currentUSer = req.session.currentUser;
+    var currentUser = req.session.currentUser;
     if(!currentUser || currentUser._id != req.params.id) {
         res.json({status: 404, data: "Opps.. you are accessing a wrong page"});
     } else {
@@ -51,5 +52,6 @@ function authorized(req, res, next) {
 module.exports = {
     createSecure: createSecure,
     loginUser: loginUser,
-    authorized: authorized
+    authorized: authorized,
+    // hashIt: hashIt
 };

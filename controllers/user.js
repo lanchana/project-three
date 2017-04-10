@@ -29,6 +29,7 @@ router.post('/', authHelper.createSecure, (req, res) => {
     User.findOne(query, (err, item) => {
         if(err) console.log(err);
         if(!item) {
+            console.log('post route on the back end res hashed password: ' + res.hashedPassword);
             var user = new User({
                 name: req.body.name,
                 email: req.body.email,
@@ -44,16 +45,14 @@ router.post('/', authHelper.createSecure, (req, res) => {
     });
 });
 
-
-
-router.patch('/:id',(req, res) => {
+router.patch('/:id', authHelper.createSecure, (req, res) => {
     var id = req.params.id;
     console.log('patch route')
     User.findById({_id: id}, (err, user) => {
         if(err) res.json({message: 'Could not find user bcoz' + err});
 
         if(req.body.name) user.name = req.body.name;
-        if(req.body.password) user.password = req.body.password;
+        if(req.body.password) user.password = res.hashedPassword;
         if(req.body.email) user.email = req.body.email;
 
         user.save((err) => {

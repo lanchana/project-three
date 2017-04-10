@@ -5,6 +5,7 @@ mongoose.connect(process.env.MONGODB_URI);
 
 var User = require('../models/user.js');
 var Company = require('../models/company.js');
+var Favorite = require('../models/favorite.js');
 var Application = require('../models/application.js');
 
 mongoose.Promise = global.Promise;

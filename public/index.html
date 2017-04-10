@@ -5,14 +5,18 @@
     <script src="js/app.bundle.js"></script>
 </head>
 <body>
-	<nav>
-    <a ui-sref="home"  >Home</a> |
-    <a ui-sref="about">About</a> |
-    <a ui-sref="login" >Login</a> |
-    <a ui-sref='applications' >Applications</a>
-    <a ui-sref="home">LogOut</a>
+<!-- {{$routeParams.param1}}{{userId}} -->
+	<nav ng-hide="('user'| includedByState)">
+    <!-- <nav> -->
+    <a ui-sref="home"  ng-hide="'user' | includedByState">Home | </a>
+    <a ui-sref="about">About | </a>
+    <a ui-sref="login" ng-hide="'applications' || 'applicationShow' | includedByState">Login | </a>
+    <a ui-sref='applications' ng-hide="'user' | includedByState" >Applications | </a>
+    <a ui-sref="home" ng-if="'user' | includedByState">LogOut</a>
+
+    <!-- <a ui-sref="applications({id: $ctrl.id})" ng-if="'user' | includedByState">Applications</a> -->
+    <!-- {{$ctrl.id}} -->
   </nav>
-    <h1>Im working</h1>
     <ui-view></ui-view>
 
 

@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var User = require('../models/user.js');
 var authHelper = require('../helpers/auth.js');
+var Favorite = require('../models/favorite.js');
+
 
 router.get('/edit/:id', function(req, res) {
     var id = req.params.id;
@@ -22,6 +24,28 @@ router.get('/:id', authHelper.createSecure, (req, res) => {
             res.json({user: user});
         });
 });
+
+router.post('/fav/:userId/company/:companyId/app/:appId', (req, res) => {
+    console.log()
+    console.log("in server side : "+req.params.appId);
+    User.findById(req.params.userId)
+        .exec((err, user) => {
+        if(err) res.json({message: 'Could not find user bcoz' + err});
+        var newFavorite = new Favorite({
+            appId: req.params.appId,
+            companyId: req.params.companyId
+        });
+
+        user.favorite.push(newFavorite);
+
+        user.save((err) => {
+            // res.json({message: 'Could not find user bcoz' + err});
+             console.log('updated');
+            // res.json({added: 'user Fav is added'});
+        });
+
+    });
+})
 
 router.post('/', authHelper.createSecure, (req, res) => {
     var query = {'email' : req.body.email};
@@ -43,8 +67,6 @@ router.post('/', authHelper.createSecure, (req, res) => {
         }
     });
 });
-
-
 
 router.patch('/:id',(req, res) => {
     var id = req.params.id;

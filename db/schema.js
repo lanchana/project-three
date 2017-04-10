@@ -15,11 +15,16 @@ var CompanySchema = new Schema({
     applications: [ApplicationSchema]
 });
 
+var FavoriteSchema = new Schema({
+    appId : String,
+    companyId: String
+});
+
 var UserSchema = new Schema({
     name: String,
     email: String,
     password: String,
-    favorite: [ApplicationSchema]
+    favorite: [FavoriteSchema]
 });
 
 UserSchema.index({email: 1, type: -1});
@@ -33,6 +38,14 @@ ApplicationSchema.pre('save', (next) => {
 });
 
 CompanySchema.pre('save', (next) => {
+    now = new Date();
+    this.updated_at = now;
+
+    if(!this.created_at) {this.created_at = now}
+        next();
+});
+
+FavoriteSchema.pre('save', (next) => {
     now = new Date();
     this.updated_at = now;
 
@@ -54,8 +67,11 @@ var UserModel = mongoose.model('User', UserSchema);
 
 var ApplicationModel = mongoose.model('App', ApplicationSchema);
 
+var FavoriteModel = mongoose.model('Favorite', FavoriteSchema);
+
 module.exports = {
     User: UserModel,
     Application: ApplicationModel,
-    Company: CompanyModel
+    Company: CompanyModel,
+    Favorite: FavoriteModel
 };

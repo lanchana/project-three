@@ -70,14 +70,14 @@ router.post('/', authHelper.createSecure, (req, res) => {
 
 
 
-router.patch('/:id', (req, res) => {
+router.patch('/:id', authHelper.createSecure, (req, res) => {
     var id = req.params.id;
 
     User.findById({_id: id}, (err, user) => {
         if(err) res.json({message: 'Could not find user bcoz' + err});
 
         if(req.body.name) user.name = req.body.name;
-        if(req.body.password) user.password = req.body.password;
+        if(req.body.password) user.password = res.hashedPassword;
         if(req.body.email) user.email = req.body.email;
 
         user.save((err) => {

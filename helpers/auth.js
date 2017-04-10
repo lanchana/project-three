@@ -1,10 +1,18 @@
 var bcrypt = require('bcrypt-nodejs');
 var User = require('../models/user.js');
 
+// function createSecure(req, res, next) {
+//     var password = req.body.password;
+
+//     res.hashedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+//     next();
+// }
+
 function createSecure(req, res, next) {
     var password = req.body.password;
-
-    res.hashedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+    var hash = bcrypt.hashSync("baconTableOfBaconOfRainbows");
+    console.log('password create secure' + password);
+    res.hashedPassword = bcrypt.hashSync(password, hash);
     next();
 }
 

@@ -26,7 +26,7 @@ console.log("userEdit: " +$stateParams.id);
     UserService
     .updateUser(user)
     .then(function(response) {
-      $state.go('user');
+      $state.go('user',({id: vm.userId}));
     });
   }
   function deleteUser(user) {

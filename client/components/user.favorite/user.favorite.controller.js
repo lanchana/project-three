@@ -7,6 +7,7 @@ function UserFavoriteController(UserService, $stateParams) {
     // vm.userFavorite = userFavorite;
     // $rootScope.id = $stateParams.id;
     vm.userId = id;
+    vm.id = id;
     vm.userFavDelete = userFavDelete;
     vm.deleteSession = deleteSession;
     vm.favApps = {}

@@ -13,6 +13,10 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
             url: '/',
             template: '<home></home>'
         })
+        .state('about', {
+            url: '/about',
+            template: '<about></about>'
+        })
         .state('signUp', {
             url: '/signup',
             template: '<sign-up></sign-up>'
@@ -32,5 +36,9 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
         .state('user', {
             url:'/user/:id',
             template: '<user></user>'
+        })
+        .state('userEdit', {
+            url: '/user/edit/:id',
+            template: '<user-edit></user-edit>'
         });
 }

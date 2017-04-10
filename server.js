@@ -42,6 +42,6 @@ app.use('/api/applications', applicationController);
 var sessionsRouter = require('./controllers/sessions.js');
 app.use('/api/sessions', sessionsRouter);
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 7000, () => {
     console.log('I\'m listening on 5000');
 });

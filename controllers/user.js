@@ -7,6 +7,15 @@ var authHelper = require('../helpers/auth.js');
 var Favorite = require('../models/favorite.js');
 
 
+router.get('/edit/:id', function(req, res) {
+    var id = req.params.id;
+    console.log('user get route');
+    User.findById({_id: id}, function(err, user) {
+        if(err) res.json({err});
+        res.json({user: user})
+    })
+})
+
 router.get('/:id', authHelper.createSecure, (req, res) => {
     console.log('im in user account'+ req.params.id);
     User.findById(req.params.id)
@@ -59,11 +68,9 @@ router.post('/', authHelper.createSecure, (req, res) => {
     });
 });
 
-
-
-router.patch('/:id', (req, res) => {
+router.patch('/:id',(req, res) => {
     var id = req.params.id;
-
+    console.log('patch route')
     User.findById({_id: id}, (err, user) => {
         if(err) res.json({message: 'Could not find user bcoz' + err});
 
@@ -72,9 +79,9 @@ router.patch('/:id', (req, res) => {
         if(req.body.email) user.email = req.body.email;
 
         user.save((err) => {
-            if(err) res.json({message: 'could not update your account bcoz' + err});
+            if(err) res.json({message: 'could not update your account because' + err});
 
-            res.json({message: 'USer account updated successfully', user: user});
+            res.json({message: 'User account updated successfully', user: user});
         })
     }).select('-__v');
 });

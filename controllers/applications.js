@@ -19,7 +19,15 @@ router.get('/', (req, res) => {
 router.get('/user/:userId', (req, res) => {
     console.log('I am hitting router');
     var matchApp = [];
-    var matchapp1 = [];
+    // var matchapp1 = [];
+
+    // Hassan
+    // set var appId = findAppId
+    // update company's app info
+    // A query to find specifc app in favorites of every user...it's one query
+    // db.users.find({ 'favorites.id': appId}) **something like this**
+    // then take this array of all the favorites and update them with the new information and save
+
     User.findById(req.params.userId)
         .exec((err, user) => {
             if(err) console.log(err);

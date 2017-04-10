@@ -17,7 +17,7 @@ function UserFavoriteController(UserService, $stateParams) {
         UserService
             .favoriteApps(vm.id)
             .then(function resolve(response) {
-                console.log(response.data.favoriteApp);
+                // console.log(response.data.favoriteApp);
                 vm.favApps = response.data.favoriteApp;
             });
     }

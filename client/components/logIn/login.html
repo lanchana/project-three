@@ -1,4 +1,5 @@
 <form class="login" ng-submit="$ctrl.userLogin($ctrl.checkUser)" method="POST">
+<!-- {{$scope.In}} -->
     <div>
         <input type="email" name="email" ng-model="$ctrl.checkUser.email" placeholder="email">
     </div>
@@ -11,6 +12,7 @@
     <div>
         <span ng-show="$ctrl.invalid">Invalid username or password</span>
     </div>
+
     <div>
         <span>Dont you have an account? <a ui-sref="signUp">Sign up</a></span>
     </div>

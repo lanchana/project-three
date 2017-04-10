@@ -1,7 +1,11 @@
-ApplicationsController.$inject =['ApplicationsService'];
+ApplicationsController.$inject =['ApplicationsService', '$stateParams'];
 
-function ApplicationsController(ApplicationsService) {
+function ApplicationsController(ApplicationsService, $stateParams) {
     const vm = this;
+    vm.userId = $stateParams.id;
+    if(vm.userId){
+    console.log("app cntr" +vm.userId);
+}
     activate();
     function activate() {
         loadAllApplications();
@@ -17,8 +21,6 @@ function ApplicationsController(ApplicationsService) {
                 vm.companies = response.data.companies;
             })
     }
-
-
 }
 
 module.exports = ApplicationsController;

@@ -5,7 +5,8 @@ function UserLogin($stateParams, UserService, $state, $scope) {
     vm.checkUser = {};
     vm.invalid = false;
     vm.userLogin = userLogin;
-    $scope.userLogedIn = 'blah';
+    $scope.In = 'blah';
+    vm.id = {};
 
     function userLogin(currentUser) {
         console.log(currentUser);
@@ -21,8 +22,8 @@ function UserLogin($stateParams, UserService, $state, $scope) {
                 } else if(response.data.user) {
                     vm.invalid = false;
                     vm.userLogedIn = true;
-                    var id =response.data.user._id;
-                    $state.go('user',({id: id}));
+                    vm.id =response.data.user._id;
+                    $state.go('user',({id: vm.id}));
                     // console.log(response.data.user);
                     // UserFavoriteController.userFavorite(id);
                 }

@@ -1,12 +1,7 @@
-
-
-
 <nav>
-<a></a><a ng-click="$ctrl.deleteSession()" ui-sref="home">logout</a> | <a ui-sref="applications({id:$ctrl.id})">application</a></nav>
+    <a></a><a ng-click="$ctrl.deleteSession()" ui-sref="home">logout</a> | <a ui-sref="applications({id:$ctrl.id})">application</a>
+</nav>
 <h1>user Contoller</h1>
-<!-- {{$ctrl.id}} -->
-<!-- {{$rootScope.id}} -->
-<!-- <pre>{{ $ctrl | json }}</pre> -->
 <ul>
     <li ng-repeat="favapp in $ctrl.favApps">
         <ul>
@@ -15,10 +10,11 @@
             <li>Description: {{favapp.description}}</li>
             <li>DownloadUrl: {{favapp.downloadUrl}}</li>
         </ul>
+
         <form ng-submit="$ctrl.userFavDelete($ctrl.id, favapp.favId)">
             <input type="submit" value="Delete">
-
         </form>
+        
         <hr>
     </li>
 </ul>

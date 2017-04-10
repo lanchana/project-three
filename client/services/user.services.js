@@ -12,6 +12,7 @@ function UserService($http) {
     self.checkUser = checkUser;
     self.updateUser = updateUser;
     self.loadCurrentUser = loadCurrentUser;
+    self.deleteUser = deleteUser;
 
     function createNewUser (newUser) {
     	return $http.post('/api/user/', newUser);
@@ -27,8 +28,12 @@ function UserService($http) {
     }
 
     function loadCurrentUser(id) {
-        console.log('user service says:' + id);
+        // console.log('user service says:' + id);
         return $http.get('/api/user/edit/' + id);
+    }
+    function deleteUser(user) {
+        console.log("from delete user " + user._id)
+        return $http.delete('/api/user/' +user._id);
     }
 }
 

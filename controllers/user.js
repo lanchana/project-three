@@ -46,7 +46,7 @@ router.post('/', authHelper.createSecure, (req, res) => {
 
 
 
-router.patch('/:id', (req, res) => {
+router.patch('/:id',(req, res) => {
     var id = req.params.id;
     console.log('patch route')
     User.findById({_id: id}, (err, user) => {

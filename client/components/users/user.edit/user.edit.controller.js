@@ -7,6 +7,7 @@ function UserEditController($state, UserService, $stateParams) {
 console.log("userEdit: " +$stateParams.id);
   // vm.updatedUser = {};
   vm.editUser = editUser;
+  vm.deleteUser = deleteUser;
   vm.current = {};
 
   activate();
@@ -26,6 +27,15 @@ console.log("userEdit: " +$stateParams.id);
     .updateUser(user)
     .then(function(response) {
       $state.go('user');
+    });
+  }
+  function deleteUser(user) {
+    console.log("deleteController" + user);
+    UserService
+    .deleteUser(user)
+    .then(function(response) {
+      console.log('back from server!!!!');
+      $state.go('home');
     });
   }
 }

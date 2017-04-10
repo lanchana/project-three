@@ -77,14 +77,8 @@ router.delete('/user/:userId/fav/:favId', (req, res) => {
     .exec((err, user) => {
         var fav = user.favorite.id(req.params.favId);
         console.log(fav);
-        console.log('identicle' + user.favorite.pull(req.params.favId));
+        user.favorite.pull(req.params.favId);
         user.save();
-        // Deletes the specific photo based on its id
-        // place.photos.pull(req.params.id)
-        // Saves the changes made into database
-        // user.save();
-        // Redirects to the same page to delete more photos
-        // res.redirect('/'+req.params.userId+'/'+req.params.placesId+'/photos/edit')
         res.json({app: 'App deleted suc'});
     });
 })

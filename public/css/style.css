@@ -1,0 +1,49 @@
+.home {
+    /*text-align: center;*/
+}
+
+/*bio names*/
+.bio {
+    text-align: left;
+    margin-left: 50px;
+}
+.team-title {
+    padding: 25px;
+    /*text-align: center;*/
+    /*background-color: #e0e0e0 ;*/
+    opacity: .75;
+}
+
+.summary {
+    margin-left: 20px;
+}
+
+body {
+font-family: font-family: 'Raleway', sans-serif;
+letter-spacing: 1.5px;
+font-size: 20px;
+display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+  }
+.company {
+    margin-left: 20px;
+}
+.searchbox {
+    margin-left: 20px;
+}
+nav {
+    /*background-color: #80deea ;*/
+}
+.logo {
+    height: 60px;
+    margin-top: 5px;
+}
+footer {
+    color: white;
+    /*background-color: #e0f7fa ;*/
+
+}

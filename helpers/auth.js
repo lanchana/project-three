@@ -42,8 +42,6 @@ function loginUser(req, res, next) {
         .catch((err) => {
             console.log('no.. i am not in: '+ err);
             res.json({status: 500, message: 'Invalid User Name or Password'});
-            // req.eror = 'Invalid User Name or Password';
-            // res.json({status: 500, data: err});
         });
 }
 

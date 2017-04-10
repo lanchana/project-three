@@ -5,6 +5,7 @@ mongoose.connect(process.env.MONGODB_URI);
 
 var User = require('../models/user.js');
 var Company = require('../models/company.js');
+var Favorite = require('../models/favorite.js');
 var Application = require('../models/application.js');
 
 mongoose.Promise = global.Promise;
@@ -23,7 +24,7 @@ var companies = [{
             description: "blah blah blah "
         },
         {
-            name: "chrome2",
+            name: "ninja",
             logo:"http://",
             downloadUrl: "htt://",
             description: "blah blahhhhh"

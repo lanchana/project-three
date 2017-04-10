@@ -1,0 +1,16 @@
+{{$ctrl.userId}}
+<ul>
+    <li ng-repeat="company in $ctrl.companies">
+        {{ company.name }} -- apps:
+        <div ng-repeat="app in company.applications">
+         <br>{{ app.name }} <a ui-sref="applicationShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})">
+        Click here to see the details</a>
+
+        </div>
+        <!-- {{$ctrl.userId}} -->
+
+        <hr>
+    </li>
+</ul>
+<div>
+            <a ui-sref="user({id: $ctrl.userId})" ng-show="$ctrl.userId">Back</a>

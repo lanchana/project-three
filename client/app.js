@@ -22,11 +22,11 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
             template: '<login></login>'
         })
         .state('applications', {
-            url:'/applications',
+            url:'/applications/:id',
             template:'<applications></applications>'
         })
         .state('applicationShow', {
-            url: '/applications/:companyId/app/:appId',
+            url: '/applications/:companyId/app/:appId/:userId',
             template: '<application-show></application-show>'
         })
         .state('user', {

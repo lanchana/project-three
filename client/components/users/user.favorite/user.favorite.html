@@ -1,1 +1,15 @@
+<nav><a></a><a ui-sref="home">logout</a> | <a ui-sref="applications({id:$ctrl.id})">application</a></nav>
 <h1>user Contoller</h1>
+<!-- {{$ctrl.id}} -->
+<!-- {{$rootScope.id}} -->
+<ul>
+    <li ng-repeat="favapp in $ctrl.favApps">
+        <ul>
+            <li>Name: {{favapp.name}}</li>
+            <li>Logo: {{favapp.logo}}</li>
+            <li>Description: {{favapp.description}}</li>
+            <li>DownloadUrl: {{favapp.downloadUrl}}</li>
+        </ul>
+        <hr>
+    </li>
+</ul>

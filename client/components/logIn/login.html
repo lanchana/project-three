@@ -1,4 +1,4 @@
-<form class="login" ng-submit="$ctrl.userLogin($ctrl.checkUser)" method="POST">
+<!-- <form class="login" ng-submit="$ctrl.userLogin($ctrl.checkUser)" method="POST">
     <div>
         <input type="email" name="email" ng-model="$ctrl.checkUser.email" placeholder="email">
     </div>
@@ -15,4 +15,33 @@
     <div>
         <span>Dont you have an account? <a ui-sref="signUp">Sign up</a></span>
     </div>
-</form>
+</form> -->
+
+<div class="col-md-6 login z-depth-4 hoverable">
+    <form class="col s12" ng-submit="$ctrl.userLogin($ctrl.checkUser)" method="POST">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" ng-model="$ctrl.checkUser.email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" ng-model="$ctrl.checkUser.password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="center">
+        <input type="submit" value="login" class="waves-effect waves-light btn">
+    </div>
+      <div class="center ">
+        <span ng-show="$ctrl.invalid" class="invalid">Invalid username or password</span>
+    </div>
+
+    <div class="center">
+        <span>Dont you have an account? <a ui-sref="signUp">Sign up</a></span>
+    </div>
+
+    </form>
+  </div>
+

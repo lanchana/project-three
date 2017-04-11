@@ -14,7 +14,9 @@ function UserEditController($state, UserService, $stateParams) {
     UserService
       .loadCurrentUser($stateParams.id)
       .then(function resolve(response) {
+
         vm.current = response.data.user;
+        vm.current.password= '';
       });
   }
 

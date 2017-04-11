@@ -86,6 +86,11 @@ nav ul a{
     font-size: 1em;
 }
 
+h2 {
+    text-shadow: 2px 2px 4px grey;
+    font-size: 2em;
+}
+
 .customImg,
 .card-image {
     margin: 0 auto;

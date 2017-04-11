@@ -1,22 +1,47 @@
 <nav>
-    <a></a><a ng-click="$ctrl.deleteSession()" ui-sref="home">logout</a> | <a ui-sref="applications({id:$ctrl.id})">application</a>
+    <a></a><a ng-click="$ctrl.deleteSession()" ui-sref="home">logout</a> | <a ui-sref="applications({id:$ctrl.id})">application</a> |
+    <a ui-sref="userEdit({id:$ctrl.userId})">edit profile</a>
 </nav>
-<h1>user Contoller</h1>
-<ul>
-    <li ng-repeat="favapp in $ctrl.favApps">
+<!-- <h1>user Contoller</h1> -->
+
+    <!-- <li ng-repeat="favapp in $ctrl.favApps">
         <ul>
             <li>Name: {{favapp.name}}</li>
             <li>Logo: {{favapp.logo}}</li>
             <li>Description: {{favapp.description}}</li>
             <li>DownloadUrl: {{favapp.downloadUrl}}</li>
-        </ul>
+        </ul> -->
+        <div class="container ">
+        <div class="col-md-4" ng-repeat="favapp in $ctrl.favApps">
+        <!-- <div class="col-md-4"> -->
+          <div class="card z-depth-1 hoverable">
+            <div class="card-image">
+              <img src="{{favapp.logo}}" class="customImg" alt="{{favapp.name}}">
+              <!-- <span class="card-title">{{favapp.name}}</span> -->
+            </div>
+            <div class="card-action center">
 
-        <form ng-submit="$ctrl.userFavDelete($ctrl.id, favapp.favId)">
+              <form ng-submit="$ctrl.userFavDelete($ctrl.id, favapp.favId)">
+              <span class="card-title  left">{{favapp.name}}</span>
+            <!-- <input type="submit" value="Delete" class="right"> -->
+            <button type="submit" class="delBtn right"><i class="material-icons ">delete</i></button>
+            </form>
+              <!-- <span class="card-title">{{favapp.name}}</span> -->
+            </div>
+            <div>
+                <!-- <span class="card-title">{{favapp.name}}</span> -->
+            </div>
+          <!-- </div> -->
+        </div>
+      </div>
+</div>
+        <!-- <form ng-submit="$ctrl.userFavDelete($ctrl.id, favapp.favId)">
             <input type="submit" value="Delete">
         </form>
-        
+
         <hr>
     </li>
-</ul>
+</ul> -->
 
-<a ui-sref="userEdit({id:$ctrl.userId})">edit profile</a>
+
+

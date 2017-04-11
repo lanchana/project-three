@@ -8,7 +8,7 @@
     "start": "node server.js",
     "start:dev:server": "nodemon server.js",
     "start:dev:client": "webpack --watch",
-    "build": "webpack"
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",

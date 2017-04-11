@@ -1,4 +1,4 @@
-<nav>
+<nav class="navbar teal lighten-1 z-depth-1">
     <a></a><a ng-click="$ctrl.deleteSession()" ui-sref="home">logout</a> | <a ui-sref="applications({id:$ctrl.id})">application</a> |
     <a ui-sref="userEdit({id:$ctrl.userId})">edit profile</a>
 </nav>
@@ -11,9 +11,7 @@
     </div>
     <div class="col-md-8">
         <div class="col-md-12 center">
-            <!-- <div class="col-md-8"> -->
                 <h2 class="">{{favapp.name}}</h2>
-            <!-- </div> -->
         </div>
         <div class="col-md-12 appDesc">
             <p>{{favapp.description}}</p>

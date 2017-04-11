@@ -1,18 +1,95 @@
+</body>
+</html>
 <!DOCTYPE html>
 <html ng-app="projectThree">
 <head>
-    <title>Project 3</title>
-    <script src="js/app.bundle.js"></script>
+   <title>Project 3</title>
+    <meta charset="UTF-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+      <!-- <link href="css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
+
+    <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- BootStrap Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+
+
+     <!-- <script type="text/javascript" src="js/main.js"></script> -->
+   <!-- <script src="js/app.bundle.js"></script> -->
+   <!-- Compiled and minified CSS -->
+<link href="https://fonts.googleapis.com/css?family=Neuton|Quattrocento+Sans|Questrial|Raleway" rel="stylesheet">
+
+
+ <!-- Compiled and minified JavaScript -->
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script> -->
+
+ <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
 </head>
 <body>
-	<nav ng-hide="('user'| includedByState)">
-    <a ui-sref="home"  ng-hide="'user' | includedByState">Home | </a>
-    <a ui-sref="about">About | </a>
-    <a ui-sref="login" ng-hide="'applications' || 'applicationShow' | includedByState">Login | </a>
-    <a ui-sref='applications' ng-hide="'user' | includedByState" >Applications | </a>
-    <a ui-sref="home" ng-if="'user' | includedByState">LogOut</a>
+
+  <nav ng-hide="('user'| includedByState)" class="navbar teal lighten-1 z-depth-1">
+    <div class="nav-wrapper">
+      <a  ui-sref="home" ng-hide="'user' | includedByState" ><img class="logo brand-logo tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home"src="http://i.imgur.com/R9lRYqc.png" ></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a ui-sref="about" >About</a></li>
+        <li><a ui-sref="login" ng-hide="'applications' || 'applicationShow' | includedByState">Login </a></li>
+        <li><a ui-sref='applications' ng-hide="'user' | includedByState">Applications </a></li>
+        <li><a ui-sref="home" ng-if="'user' | includedByState">LogOut</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a ui-sref="about">About</a></li>
+        <li><a ui-sref="login" ng-hide="'applications' || 'applicationShow' | includedByState">Login </a></li>
+       <li><a ui-sref='applications' ng-hide="'user' | includedByState">Applications </a></li>
+        <li><a ui-sref="home" ng-if="'user' | includedByState">LogOut</a></li>
+      </ul>
+    </div>
   </nav>
-    <ui-view></ui-view>
+<main>
+<!-- {{req.session.currentUser}} -->
+   <ui-view>
+       <!-- {{$ctrl || json}} -->
+   </ui-view>
+   </main>
+     <footer class="page-footer center teal lighten-1">
+         <div class="container">
+           <!-- <div class="row">
+             <div class="col l6 s12"> -->
+               © 2017 Gold Fish
+             </div>
+
+           <!-- </div>
+         </div> -->
+         </div>
+       </footer>
+
+
+<script src="js/app.bundle.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ <script type="text/javascript" src="js/main.js"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- <script type="text/javascript" src="/javascripts/main.js"></script> -->
+
+<!--Import jQuery before materialize.js-->
+
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+
+
 
 </body>
 </html>

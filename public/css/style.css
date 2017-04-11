@@ -1,0 +1,113 @@
+.card-title {
+    /*text-align: center;*/
+    color: black !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+/*bio names*/
+.bio {
+    text-align: left;
+    margin-left: 50px;
+}
+.team-title {
+    padding: 25px;
+    /*text-align: center;*/
+    /*background-color: #e0e0e0 ;*/
+    opacity: .75;
+}
+
+.summary {
+    margin-left: 20px;
+}
+
+.login {
+    /*margin: 0 auto;*/
+    /*margin: 2em auto;*/
+    /*margin: 6em auto;*/
+    float: none;
+    margin: 3em auto;
+    padding: 1em;
+
+}
+
+.customBtn {
+    margin: 1em 0;
+}
+
+.invalid {
+    margin: 1em 0;
+    font-size: 0.8em;
+    color: #e53935;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.card {
+    margin-top: 1em;
+}
+
+.card-title {
+    padding: 1em;
+}
+
+.updateBtn {
+    padding: 1em;
+}
+
+.delBtn {
+    /*background: none;*/
+    border: none;
+    color: red;
+    background: white;
+}
+
+body {
+font-family: font-family: 'Raleway', sans-serif;
+letter-spacing: 1.5px;
+font-size: 20px;
+display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+  }
+.company {
+    margin-left: 20px;
+}
+.searchbox {
+    margin-left: 20px;
+}
+
+nav ul a{
+    font-size: 1em;
+}
+
+.customImg,
+.card-image {
+    margin: 0 auto;
+    background-size: cover;
+    max-width: 250px;
+    max-height: 250px;
+    min-width: 250px;
+    min-height: 250px;
+
+}
+
+nav {
+    /*background-color: #80deea ;*/
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.logo {
+    height: 60px;
+    margin-top: 5px;
+}
+footer {
+    color: white;
+    /*background-color: #e0f7fa ;*/
+
+}

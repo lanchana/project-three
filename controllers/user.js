@@ -14,7 +14,7 @@ router.get('/edit/:id', function(req, res) {
     })
 });
 
-router.get('/:id', authHelper.createSecure, (req, res) => {
+router.get('/:id', authHelper.authorized, (req, res) => {
     User.findById(req.params.id)
         .exec((err, user) => {
             if(err) res.json({message: 'Invalid user name or password:'+err});

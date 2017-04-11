@@ -1,10 +1,11 @@
+<!-- <pre>{{req.session}}</pre> -->
 <div class="ApplicationShow">
    Name:  {{$ctrl.current.name}} <br>
    Description:  {{$ctrl.current.description}}<br>
    Download link: {{$ctrl.current.downloadUrl}}<br>
    Download Logo: {{$ctrl.current.logo}}<br>
    <form ng-if="$ctrl.userId" ng-submit="$ctrl.addFav()">
-        <input type="submit" value="Fav" >
-   </form>
-   <a ui-sref="applications({id: $ctrl.userId})" ng-show="$ctrl.userId">Back</a>
+            <input type="submit" value="Fav" class="btn" >
+        </form>
+        <a ui-sref="applications({id: $ctrl.userId})" ng-show="$ctrl.userId">Back</a>
 </div>

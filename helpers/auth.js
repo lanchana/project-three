@@ -35,7 +35,9 @@ function loginUser(req, res, next) {
 }
 
 function authorized(req, res, next) {
-    var currentUSer = req.session.currentUser;
+    var currentUser = req.session.currentUser;
+    console.log("inside auth helper : " + currentUser);
+    console.log('---------------------');
     if(!currentUser || currentUser._id != req.params.id) {
         res.json({status: 404, data: "Opps.. you are accessing a wrong page"});
     } else {

@@ -15,7 +15,7 @@ function ApplicationsController(ApplicationsService, $stateParams) {
             .loadAll()
             .then(function resolve(response) {
                 vm.companies = response.data.companies;
-            })
+            });
     }
 }
 

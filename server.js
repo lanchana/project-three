@@ -27,8 +27,6 @@ mongoose.connection.on ('error', (err) => {
 
 app.use(express.static(__dirname + '/public'));
 
-// var homeController = require('./controllers/home.js');
-// app.use('/', homeController);
 app.get('/', function(req, res) {
     console.log('home page');
 });

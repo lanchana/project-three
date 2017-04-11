@@ -8,16 +8,13 @@ var Favorite = require('../models/favorite.js');
 
 router.get('/edit/:id', function(req, res) {
     var id = req.params.id;
-    console.log('user get route');
     User.findById({_id: id}, function(err, user) {
         if(err) res.json({err});
-        console.log(user);
         res.json({user: user});
     })
 });
 
 router.get('/:id', authHelper.authorized, (req, res) => {
-    console.log('im in user account'+ req.params.id);
     User.findById(req.params.id)
         .exec((err, user) => {
             if(err) res.json({message: 'Invalid user name or password:'+err});
@@ -26,8 +23,6 @@ router.get('/:id', authHelper.authorized, (req, res) => {
 });
 
 router.post('/fav/:userId/company/:companyId/app/:appId', (req, res) => {
-    console.log()
-    console.log("in server side : "+req.params.appId);
     User.findById(req.params.userId)
         .exec((err, user) => {
         if(err) res.json({message: 'Could not find user bcoz' + err});
@@ -39,9 +34,7 @@ router.post('/fav/:userId/company/:companyId/app/:appId', (req, res) => {
         user.favorite.push(newFavorite);
 
         user.save((err) => {
-            // res.json({message: 'Could not find user bcoz' + err});
              console.log('updated');
-            // res.json({added: 'user Fav is added'});
         });
 
     });
@@ -68,8 +61,6 @@ router.post('/', authHelper.createSecure, (req, res) => {
     });
 });
 
-
-
 router.patch('/:id', authHelper.createSecure, (req, res) => {
     var id = req.params.id;
 
@@ -95,7 +86,5 @@ router.delete('/:id', (req, res) => {
         res.json({message: 'User account delete'});
     }).select('-__v');
 });
-
-
 
 module.exports = router;

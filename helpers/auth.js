@@ -1,13 +1,6 @@
 var bcrypt = require('bcrypt-nodejs');
 var User = require('../models/user.js');
 
-// function createSecure(req, res, next) {
-//     var password = req.body.password;
-
-//     res.hashedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-//     next();
-// }
-
 function createSecure(req, res, next) {
     var password = req.body.password;
     var hash = bcrypt.hashSync("baconTableOfBaconOfRainbows");
@@ -23,19 +16,14 @@ function loginUser(req, res, next) {
 
     User.findOne({email: email})
         .then((foundUser) => {
-             console.log('auth : '+ foundUser.password );
             if(foundUser == null) {
                 console.log('first no.. i am not in');
-                // res.json({ message: '-1'});
                 req.error = 'Invalid User Name or Password';
             } else if(bcrypt.compareSync(password, foundUser.password)) {
                 console.log('yes i am in');
                 req.session.currentUser = foundUser;
-                console.log("auth" + req.session.currentUser);
-
             } else {
                 console.log(' second no.. i am not in');
-                // res.json({message: '-1'})
                 req.error = 'Invalid User Name or Password';
             }
             next();

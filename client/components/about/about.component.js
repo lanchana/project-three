@@ -4,7 +4,6 @@ const template = require('./about.html');
 const Component = {
     controller: controller,
     template: template
-
 };
 
 angular

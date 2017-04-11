@@ -12,11 +12,9 @@ function ApplicationShowController($stateParams, ApplicationsService, $state) {
     }
 
     function loadCurrentApplication() {
-        console.log($stateParams);
         ApplicationsService
             .loadCurrent($stateParams.companyId, $stateParams.appId )
             .then(function resolve(response) {
-                console.log("app Show" + response.data.app);
                 vm.current = response.data.app;
            });
     }
@@ -25,10 +23,6 @@ function ApplicationShowController($stateParams, ApplicationsService, $state) {
         ApplicationsService
             .userFav($stateParams.companyId, $stateParams.appId, $stateParams.userId);
             $state.go('applications',({id: vm.userId}));
-            // 'user',({id: vm.id})
-            // .then(function resolve(response) {
-            //     console.log(response);
-            // });
     }
 }
 

@@ -22,7 +22,7 @@ function UserService($http) {
     }
 
     function checkUser(currentUser) {
-        return $http.post('/api/sessions/login',currentUser);
+        return $http.post('/api/sessions/login', currentUser);
     }
 
     function favoriteApps(id) {
@@ -44,7 +44,7 @@ function UserService($http) {
     function loadCurrentUser(id) {
         return $http.get('/api/user/edit/' + id);
     }
-    
+
     function deleteUser(user) {
         return $http.delete('/api/user/' +user._id);
     }

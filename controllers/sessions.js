@@ -12,7 +12,9 @@ router.post('/login', authHelper.loginUser, (req, res) => {
         res.json({message: 'invaid username or password'});
     }
     else {
-        res.redirect('/api/user/' + req.session.currentUser._id + '?error=' + req.error);
+        console.log("inside sessions post action: " + req.session.currentUser)
+        res.json({currentUser: req.session.currentUser});
+        // res.redirect('/api/user/' + req.session.currentUser._id + '?error=' + req.error);
     }
 });
 

@@ -40,5 +40,9 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
         .state('userEdit', {
             url: '/user/edit/:id',
             template: '<user-edit></user-edit>'
-        });
+        })
+        // .state('404', {
+
+        // })
+    $urlRouterProvider.otherwise('/');
 }

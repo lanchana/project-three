@@ -6,11 +6,38 @@ const app = express();
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 
+var MongoDBStore = require('connect-mongodb-session')(session);
+
+var store = new MongoDBStore({
+uri: 'mongodb://localhost:27017/connect_mongodb_session_test',
+collection: 'mySessions'
+});
+
+// Catch errors
+store.on('error', function(error) {
+  assert.ifError(error);
+  assert.ok(false);
+});
+
+
 app.use(session({
-	secret: 'ourprojectissupersecret',
-	resave: false,
-	saveUninitalized: false
+    secret: "keyboardcat",
+    name: "mycookie",
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+        secure: false,
+        maxAge: 6000000
+    }
 }));
+
+// app.use(session({
+// 	secret: 'ourprojectissupersecret',
+// 	resave: false,
+// 	saveUninitalized: false,
+//     cookie: { maxAge: 60000 },
+//     store: store
+// }));
 
 var mongoose = require('mongoose');
 

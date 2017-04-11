@@ -10,6 +10,7 @@ function ApplicationsService($http) {
     self.loadAll = loadAll;
     self.loadCurrent =loadCurrent;
     self.userFav = userFav;
+    self.currentUSerId = {};
 
     function loadAll() {
         return $http.get('/api/applications/');
@@ -20,7 +21,12 @@ function ApplicationsService($http) {
     }
 
     function userFav(companyId, appId, userId) {
+        self.currentUSerId = userId;
         return $http.post('/api/user/fav/'+userId+'/company/'+companyId+'/app/'+appId);
+    }
+
+    function getId() {
+        return self.currentUSerId;
     }
 
 }

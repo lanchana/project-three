@@ -3,7 +3,8 @@ require('angular-ui-router');
 
 angular
     .module('projectThree', ['ui.router'])
-    .config(uiRouterSetup);
+    .config(uiRouterSetup)
+    .run(connectGaToUiRouter);
 
 uiRouterSetup.$inject = ['$stateProvider', '$urlRouterProvider'];
 
@@ -41,4 +42,11 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
             url: '/user/edit/:id',
             template: '<user-edit></user-edit>'
         });
+}
+
+connectGaToUiRouter.$inject = ['$rootScope'];
+function connectGaToUiRouter($rootScope){
+    $rootScope.$on('$stateChangeSuccess', function pingBackGa(event, toState) {
+        ga('send', 'pageview', toState.url);
+    });
 }

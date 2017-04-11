@@ -16,11 +16,11 @@ function UserLogin($stateParams, UserService, $state, $scope) {
                     vm.invalid = true;
                     $state.go('login');
 
-                } else if(response.data.user) {
+                } else if(response.data.currentUser) {
                     vm.invalid = false;
                     vm.userLogedIn = true;
-                    vm.id =response.data.user._id;
-                    $state.go('user',({id: vm.id}));
+                    vm.id = response.data.currentUser._id;
+                    $state.go('user', ({id: vm.id}));
                 }
         });
     }

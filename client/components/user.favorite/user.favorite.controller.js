@@ -3,7 +3,7 @@ UserFavoriteController.$inject = ['UserService', '$stateParams'];
 function UserFavoriteController(UserService, $stateParams) {
     const vm = this;
     const id = $stateParams.id;
-    
+
     vm.userId = id;
     vm.id = id;
     vm.userFavDelete = userFavDelete;

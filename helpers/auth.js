@@ -31,6 +31,7 @@ function loginUser(req, res, next) {
             } else if(bcrypt.compareSync(password, foundUser.password)) {
                 console.log('yes i am in');
                 req.session.currentUser = foundUser;
+                console.log("auth" + req.session.currentUser);
 
             } else {
                 console.log(' second no.. i am not in');
@@ -46,7 +47,9 @@ function loginUser(req, res, next) {
 }
 
 function authorized(req, res, next) {
-    var currentUSer = req.session.currentUser;
+    var currentUser = req.session.currentUser;
+    console.log("inside auth helper : " + currentUser);
+    console.log('---------------------');
     if(!currentUser || currentUser._id != req.params.id) {
         res.json({status: 404, data: "Opps.. you are accessing a wrong page"});
     } else {

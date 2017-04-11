@@ -35,8 +35,15 @@ main {
 .searchbox {
     margin-left: 20px;
 }
+
+nav ul a{
+    font-size: 1em;
+}
+
 nav {
     /*background-color: #80deea ;*/
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .logo {
     height: 60px;

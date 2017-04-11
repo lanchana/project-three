@@ -18,6 +18,7 @@ router.post('/login', authHelper.loginUser, (req, res) => {
     }
     else {
         // console.log('session no error');
+        console.log('sessions'+ req.session.currentUser._id)
         res.redirect('/api/user/' + req.session.currentUser._id + '?error=' + req.error);
         // response with this '/' + req.session.currentUser._id + '?error=' + req.error
     }

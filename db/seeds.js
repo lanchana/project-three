@@ -68,7 +68,7 @@ var companies = [{
             name: "Fire Supplies",
             logo: "http://i.imgur.com/ReCfoOj.png",
             downloadUrl: "https://github.com/rgpass",
-            description: "A completel collection of every single possible variation of fire emojis! Ever have a sick burn you threw out in slack and the normal fire emoji cant express how sick of a burn it was? Then you've come to the right place."
+            description: "A complete collection of every single possible variation of fire emojis! Ever have a sick burn you threw out in slack and the normal fire emoji cant express how sick of a burn it was? Then you've come to the right place."
         },
         {
             name: "Six Figures",

@@ -15,6 +15,7 @@ router.get('/edit/:id', function(req, res) {
 });
 
 router.get('/:id', authHelper.authorized, (req, res) => {
+    console.log("inside users show action: " + req.session.currentUser)
     User.findById(req.params.id)
         .exec((err, user) => {
             if(err) res.json({message: 'Invalid user name or password:'+err});

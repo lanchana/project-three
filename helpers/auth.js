@@ -20,8 +20,8 @@ function loginUser(req, res, next) {
                 console.log('first no.. i am not in');
                 req.error = 'Invalid User Name or Password';
             } else if(bcrypt.compareSync(password, foundUser.password)) {
-                console.log('yes i am in');
                 req.session.currentUser = foundUser;
+                console.log("Current user in req.session = " + req.session.currentUser)
             } else {
                 console.log(' second no.. i am not in');
                 req.error = 'Invalid User Name or Password';

@@ -37,7 +37,6 @@ router.get('/user/:userId', (req, res) => {
                                             });
                                         }
                                     }
-
                                 }
                             }
                         }

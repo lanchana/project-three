@@ -1,5 +1,5 @@
-<div>
-	<form ng-submit='$ctrl.createNewUser()' method="POST">
+<div class="col-md-6 login z-depth-4 hoverable">
+	<!-- <form ng-submit='$ctrl.createNewUser()' method="POST">
 	Name:
 		<input type="text" ng-model='$ctrl.newUser.name' placeholder="Please Enter Your Name"></br>
 	Email:
@@ -14,4 +14,36 @@
             <span>Have an account? <a ui-sref="login">LogIn</a></span>
         </div>
 	</form>
+</div> -->
+
+
+<form class="col s12"  ng-submit='$ctrl.createNewUser()' method="POST">
+      <div class="row">
+        <div class="input-field col s12">
+          <input ng-model='$ctrl.newUser.name' id="first_name" type="text" class="validate">
+          <label for="first_name">User Name</label>
+        </div>
+        </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" ng-model='$ctrl.newUser.password'  class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" ng-model='$ctrl.newUser.email' class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="center">
+      <input type="submit" value="Sign Up" class="waves-effect waves-light btn">
+      </div>
+        <div class="center invalid">
+            <span ng-hide="$ctrl.created">This email is already registered</span>
+        </div>
+        <div class="center">
+            <span>Have an account? <a ui-sref="login">LogIn</a></span>
+        </div>
+    </form>
 </div>

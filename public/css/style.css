@@ -1,5 +1,8 @@
-.home {
+.card-title {
     /*text-align: center;*/
+    color: black !important;
+    padding: 0 !important;
+    text-align: center !important;
 }
 
 /*bio names*/
@@ -42,6 +45,25 @@ a:hover {
     text-decoration: none;
 }
 
+.card {
+    margin-top: 1em;
+}
+
+.card-title {
+    padding: 1em;
+}
+
+.updateBtn {
+    padding: 1em;
+}
+
+.delBtn {
+    /*background: none;*/
+    border: none;
+    color: red;
+    background: white;
+}
+
 body {
 font-family: font-family: 'Raleway', sans-serif;
 letter-spacing: 1.5px;
@@ -62,6 +84,17 @@ main {
 
 nav ul a{
     font-size: 1em;
+}
+
+.customImg,
+.card-image {
+    margin: 0 auto;
+    background-size: cover;
+    max-width: 250px;
+    max-height: 250px;
+    min-width: 250px;
+    min-height: 250px;
+
 }
 
 nav {

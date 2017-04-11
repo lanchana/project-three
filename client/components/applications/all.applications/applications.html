@@ -1,46 +1,18 @@
-<!-- <pre>{{req.session}}</pre> -->
+<pre>{{req.session}}</pre>
 <div class="container">
-<div class="right">
-<!-- Search: -->
-    <input type="text inputlg" class="glyphicon glyphicon-search" aria-hidden="true" ng-model="searchBox" id="inputlg" placeholder="Search">
+  <div>
+  Search:
+      <input type="text" ng-model="searchBox">
+  </div>
+<div >
+  <ul>
+      <li ng-repeat="company in $ctrl.companies">
+          <b>{{ company.name }}:</b>
+          <span ng-repeat="app in company.applications | filter:searchBox">
+           <br>{{ app.name }} <a ui-sref="applicationShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})">Click here to see the details</a>
+          </span>
+          <hr>
+      </li>
+  </ul>
 </div>
 
-
-<div class="col-md-12" ng-repeat="company in $ctrl.companies | filter:searchBox">
-        <!-- <div class="col-md-4"> -->
-        <h2 class="text-uppercase">{{company.name}}</h2>
-        <div ng-repeat="app in company.applications | filter:searchBox" class="col-md-4">
-          <div class="card z-depth-1 hoverable">
-            <div class="card-image">
-              <img src="{{app.logo}}" class="customImg" alt="{{favapp.name}}">
-              <!-- <span class="card-title">{{favapp.name}}</span> -->
-            </div>
-            <div class="card-action center">
-            <a ui-sref="applicationShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})">{{app.name}}</a>
-              <!-- <form ng-submit="$ctrl.userFavDelete($ctrl.id, favapp.favId)"> -->
-              <!-- <span class="card-title  left">{{app.name}}</span> -->
-            <!-- <input type="submit" value="Delete" class="right"> -->
-
-            <!-- </form> -->
-              <!-- <span class="card-title">{{favapp.name}}</span> -->
-            </div>
-            <div>
-                <!-- <span class="card-title">{{favapp.name}}</span> -->
-            </div>
-          <!-- </div> -->
-        </div>
-      </div>
-</div>
-
-<!-- <ul>
-    <li ng-repeat="company in $ctrl.companies">
-        <b>{{ company.name }}:</b>
-        <span ng-repeat="app in company.applications | filter:searchBox">
-         <br>{{ app.name }} <a ui-sref="applicationShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})">Click here to see the details</a>
-        </span>
-        <hr>
-    </li>
-</ul>
-
- <a ui-sref="user({id: $ctrl.userId})" ng-show="$ctrl.userId">Back</a>
-</div> -->

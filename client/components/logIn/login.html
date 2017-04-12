@@ -1,4 +1,4 @@
-<div class="col-md-6 login z-depth-4 hoverable">
+<div class="col-md-6 col-sm-8 col-xs-10 login z-depth-4 hoverable">
     <form class="col s12" ng-submit="$ctrl.userLogin($ctrl.checkUser)" method="POST">
       <div class="row">
         <div class="input-field col s12">
@@ -19,7 +19,7 @@
         <span ng-show="$ctrl.invalid" class="invalid">Invalid username or password</span>
       </div>
 	    <div class="center">
-	        <span>Dont you have an account? <a ui-sref="signUp">Sign up</a></span>
+	        <span class="loginMsg">Don't have an account? <a ui-sref="signUp" class="cursor">Sign up</a></span>
 	    </div>
     </form>
 </div>

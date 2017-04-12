@@ -19,6 +19,8 @@
   </nav>
 
 <div class="container">
+<h2 class="center" class="appPage">Your Favorite Apps!</h2>
+<p class="center" ng-hide="$ctrl.favApps.length > 0">Oh no! You don't have any favorites. Go to the Applications page to add some!</p>
 <div class="col-md-12 app-border" ng-repeat="favapp in $ctrl.favApps">
     <div class="col-md-4">
         <img src="{{favapp.logo}}" class="app-image z-depth-1 hoverable img-align" alt="{{$ctrl.current.name}}">

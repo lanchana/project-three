@@ -12,7 +12,7 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: '/',
-            template: '<home></home>'
+            template: ''
         })
         .state('about', {
             url: '/about',
@@ -27,12 +27,20 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
             template: '<login></login>'
         })
         .state('applications', {
-            url:'/applications/:id',
+            url:'/applications',
             template:'<applications></applications>'
         })
         .state('applicationShow', {
+            url: '/applications/:companyId/app/:appId',
+            template: '<application-show></application-show>'
+        })
+        .state('userAppShow', {
             url: '/applications/:companyId/app/:appId/:userId',
             template: '<application-show></application-show>'
+        })
+        .state('userApplications', {
+            url:'/applications/:id',
+            template:'<applications></applications>'
         })
         .state('user', {
             url:'/user/:id',

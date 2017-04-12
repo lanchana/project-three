@@ -6,7 +6,7 @@ function UserFavoriteController(UserService, $stateParams) {
 
     vm.userId = id;
     vm.id = id;
-    vm.removeFavorite = removeFavorite;
+    vm.userFavDelete = userFavDelete;
     vm.deleteSession = deleteSession;
     vm.favApps = {}
 
@@ -20,7 +20,7 @@ function UserFavoriteController(UserService, $stateParams) {
             });
     }
 
-    function removeFavorite(userId, favId) {
+    function userFavDelete(userId, favId) {
         UserService
             .removeFavorite(userId, favId)
             .then(function(response) {

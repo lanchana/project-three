@@ -23,8 +23,8 @@ function ApplicationShowController($stateParams, ApplicationsService, $state) {
 // add current application to your favorites.
     function addFav() {
         ApplicationsService
-            .userFav($stateParams.companyId, $stateParams.appId, $stateParams.userId); //calls the services function to favorite the application
-            $state.go('applications',({id: vm.userId}));
+            .userFav($stateParams.companyId, $stateParams.appId, $stateParams.userId);
+            $state.go('userApplications',({id: vm.userId}));
     }
 }
 

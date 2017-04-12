@@ -16,13 +16,8 @@
               <!-- <span class="card-title">{{favapp.name}}</span> -->
             </div>
             <div class="card-action center">
-            <a ui-sref="applicationShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})">{{app.name}}</a>
-              <!-- <form ng-submit="$ctrl.userFavDelete($ctrl.id, favapp.favId)"> -->
-              <!-- <span class="card-title  left">{{app.name}}</span> -->
-            <!-- <input type="submit" value="Delete" class="right"> -->
-
-            <!-- </form> -->
-              <!-- <span class="card-title">{{favapp.name}}</span> -->
+            <a ui-sref="applicationShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})" ng-show="'applications' | includedByState">{{app.name}}</a>
+            <a ui-sref="userAppShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})" ng-show="'userApplications' | includedByState">{{app.name}}</a>
             </div>
             <div>
                 <!-- <span class="card-title">{{favapp.name}}</span> -->
@@ -31,16 +26,3 @@
         </div>
       </div>
 </div>
-
-<!-- <ul>
-    <li ng-repeat="company in $ctrl.companies">
-        <b>{{ company.name }}:</b>
-        <span ng-repeat="app in company.applications | filter:searchBox">
-         <br>{{ app.name }} <a ui-sref="applicationShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})">Click here to see the details</a>
-        </span>
-        <hr>
-    </li>
-</ul>
-
- <a ui-sref="user({id: $ctrl.userId})" ng-show="$ctrl.userId">Back</a>
-</div> -->

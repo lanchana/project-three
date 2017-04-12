@@ -46,7 +46,7 @@ var companies = [{
             name: "SmartOS",
             logo: "http://i.imgur.com/0crNTZ1.png",
             downloadUrl: "https://wiki.smartos.org/display/DOC/Download+SmartOS",
-            description: "blah blahhhhh"
+            description: "SmartOS is a free and open-source SVR4 hypervisor, based on the UNIX operating system that combines OpenSolaris technology with Linux's KVM virtualization. Its core kernel contributed to illumos project. It features several technologies: Crossbow, DTrace, KVM, ZFS, and Zones."
         },
         {
             name: "Triton Compute",
@@ -98,7 +98,7 @@ var companies = [{
             name: "Chicken .env",
             logo: "http://greenmangoscatering.com/wp-content/uploads/2014/07/chicken.jpg",
             downloadUrl: "https://github.com/rgpass",
-            description: "Do you love chicken? Is it the greatest meat of all time? Then with this simple application the entire world of chicken is at your fingertips. Incorporating google maps api you can search for every single chicken based food within a 50 mile radius of your location!"
+            description: "Do you love chicken? Is it the greatest meat of all time? Then with this simple application the entire world of chicken is at your fingertips. Incorporating google maps api you can search for every single venue serving chicken within a 50 mile radius of your location!"
         },
     ]
 },
@@ -109,7 +109,7 @@ var companies = [{
             name: "Download Later",
             logo: "http://i.imgur.com/JwEf8vz.jpg",
             downloadUrl: "https://github.com/dphurley",
-            description: "Ever have a lot of stuff to download but only a limited ammount of time during the day? Then this application is perfect for you! You can easily set up scripts with the touch of a button to download all those files...later! Ligtning fast queing it'll have you saying, 'I'll download that on tuesday!'"
+            description: "Ever have a lot of stuff to download but only a limited amount of time during the day? Then this application is perfect for you! You can easily set up scripts with the touch of a button to download all those files...later! Ligtning fast queing it'll have you saying, 'I'll download that on tuesday!'"
         },
         {
             name: "Higher Level",

@@ -1,8 +1,6 @@
-<!-- <pre>{{req.session}}</pre> -->
 <div class="ApplicationShow">
-        <a ui-sref="applications({id: $ctrl.userId})" ng-show="$ctrl.userId">Back</a>
+    <a ui-sref="applications({id: $ctrl.userId})" ng-show="$ctrl.userId">Back</a>
 </div>
-
 <div class="container">
     <div class="col-md-4">
         <img src="{{$ctrl.current.logo}}" class="app-image z-depth-1 hoverable img-align" alt="{{$ctrl.current.name}}">
@@ -14,7 +12,6 @@
             </div>
             <div class="col-md-4">
                 <form ng-if="$ctrl.userId" ng-submit="$ctrl.addFav()" class="right">
-            <!-- <input type="submit" value="Fav" class="btn" > -->
                     <button type="submit" class="favBtn"><i class="material-icons star-size">stars</i></button>
                 </form>
             </div>
@@ -26,11 +23,4 @@
             <a href="{{$ctrl.current.downloadUrl}}" download="{{$ctrl.current.name}}" class="btn">Download <span class="glyphicon glyphicon-download" aria-hidden="true"></span></a>
         </div>
     </div>
-
 </div>
-
-
-
-
-
-

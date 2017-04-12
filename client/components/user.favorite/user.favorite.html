@@ -1,35 +1,30 @@
 <nav>
-    <a></a><a ng-click="$ctrl.deleteSession()" ui-sref="home">logout</a> | <a ui-sref="applications({id:$ctrl.id})">application</a> |
+    <a ng-click="$ctrl.deleteSession()" ui-sref="home">logout</a> | <a ui-sref="applications({id:$ctrl.id})">application</a> |
     <a ui-sref="userEdit({id:$ctrl.userId})">edit profile</a>
 </nav>
-
-
 <div class="container">
-<div class="col-md-12 app-border" ng-repeat="favapp in $ctrl.favApps">
-    <div class="col-md-4">
-        <img src="{{favapp.logo}}" class="app-image z-depth-1 hoverable img-align" alt="{{$ctrl.current.name}}">
-    </div>
-    <div class="col-md-8">
-        <div class="col-md-12 center">
-            <!-- <div class="col-md-8"> -->
-                <h2 class="">{{favapp.name}}</h2>
-            <!-- </div> -->
-        </div>
-        <div class="col-md-12 appDesc">
-            <p>{{favapp.description}}</p>
-        </div>
-        <div class="col-md-12 app-info">
-
-          <div class="col-md-6">
-            <a href="{{$ctrl.current.downloadUrl}}" download="{{$ctrl.current.name}}" class="btn waves-effect waves-light">Download <span class="glyphicon glyphicon-download" aria-hidden="true"></span></a>
-            </div>
-            <div class="col-md-6">
-              <form ng-submit="$ctrl.userFavDelete($ctrl.id, favapp.favId)">
-                <button type="submit" class="delBtn customBtn right"><i class="material-icons">delete</i></button>
-            </form>
-            </div>
-        </div>
-    </div>
-</div>
+	<div class="col-md-12 app-border" ng-repeat="favapp in $ctrl.favApps">
+	    <div class="col-md-4">
+	        <img src="{{favapp.logo}}" class="app-image z-depth-1 hoverable img-align" alt="{{$ctrl.current.name}}">
+	    </div>
+	    <div class="col-md-8">
+	        <div class="col-md-12 center">
+	            <h2 class="">{{favapp.name}}</h2>
+	        </div>
+	        <div class="col-md-12 appDesc">
+	            <p>{{favapp.description}}</p>
+	        </div>
+	        <div class="col-md-12 app-info">
+	          	<div class="col-md-6">
+	            	<a href="{{$ctrl.current.downloadUrl}}" download="{{$ctrl.current.name}}" class="btn waves-effect waves-light">Download <span class="glyphicon glyphicon-download" aria-hidden="true"></span></a>
+	            </div>
+	            <div class="col-md-6">
+	              	<form ng-submit="$ctrl.removeFavorite($ctrl.id, favapp.favId)">
+	                	<button type="submit" class="delBtn customBtn right"><i class="material-icons">delete</i></button>
+	            	</form>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 </div>
 

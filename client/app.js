@@ -42,7 +42,6 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
             url: '/user/edit/:id',
             template: '<user-edit></user-edit>'
         });
-        
     $urlRouterProvider.otherwise('/');
 }
 

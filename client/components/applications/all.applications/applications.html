@@ -1,10 +1,13 @@
 
 <nav class="navbar teal lighten-1 z-depth-1" ng-show="{{$ctrl.userId}}">
     <div class="nav-wrapper">
-      <a  href="/#!/user/{{$ctrl.userId}}" ><img class="logo brand-logo tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home" src="http://i.imgur.com/R9lRYqc.png" ></a>
-      <a href="/#!/user/{{$ctrl.id}}" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a  href="/#!/user/{{$ctrl.userId}}" >
+        <img class="logo brand-logo tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home" src="http://i.imgur.com/R9lRYqc.png" >
+      </a>
+      <a href="/#!/user/{{$ctrl.id}}" data-activates="mobile-demo" class="button-collapse">
+        <i class="material-icons">menu</i>
+      </a>
       <ul class="right ">
-
         <li><a ui-sref="userEdit({id:$ctrl.userId})">Settings</a></li>
         <li><a ng-click="$ctrl.deleteSession()" ui-sref="home">logout</a></li>
       </ul>
@@ -16,32 +19,22 @@
   </nav>
 
 
-<!-- <pre>{{req.session}}</pre> -->
-<div class="container">
-<<<<<<< HEAD
 <div class="right">
-<!-- Search: -->
     <input type="text inputlg" class="glyphicon glyphicon-search" aria-hidden="true" ng-model="searchBox" id="inputlg" placeholder="Search">
 </div>
 
 
 <div class="col-md-12" ng-repeat="company in $ctrl.companies | filter:searchBox">
-        <!-- <div class="col-md-4"> -->
         <h2 class="text-uppercase">{{company.name}}</h2>
         <div ng-repeat="app in company.applications | filter:searchBox" class="col-md-4">
           <div class="card z-depth-1 hoverable">
             <div class="card-image">
               <img src="{{app.logo}}" class="customImg" alt="{{favapp.name}}">
-              <!-- <span class="card-title">{{favapp.name}}</span> -->
             </div>
             <div class="card-action center">
-            <a ui-sref="applicationShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})" ng-show="'applications' | includedByState">{{app.name}}</a>
-            <a ui-sref="userAppShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})" ng-show="'userApplications' | includedByState">{{app.name}}</a>
+              <a ui-sref="applicationShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})" ng-show="'applications' | includedByState">{{app.name}}</a>
+              <a ui-sref="userAppShow({companyId: company._id, appId: app._id, userId: $ctrl.userId})" ng-show="'userApplications' | includedByState">{{app.name}}</a>
             </div>
-            <div>
-                <!-- <span class="card-title">{{favapp.name}}</span> -->
-            </div>
-          <!-- </div> -->
         </div>
       </div>
 </div>

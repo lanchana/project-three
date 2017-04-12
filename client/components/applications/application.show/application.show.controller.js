@@ -22,7 +22,7 @@ function ApplicationShowController($stateParams, ApplicationsService, $state) {
     function addFav() {
         ApplicationsService
             .userFav($stateParams.companyId, $stateParams.appId, $stateParams.userId);
-            $state.go('applications',({id: vm.userId}));
+            $state.go('userApplications',({id: vm.userId}));
     }
 }
 

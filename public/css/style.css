@@ -14,16 +14,14 @@ body {
 }
 
 /*bio names*/
-.bio {
-    text-align: left;
-    margin-left: 50px;
-}
+
 .team-title {
     padding: 25px;
     opacity: .75;
 }
 
 .summary {
+    text-align: center;
     margin-left: 20px;
 }
 
@@ -141,7 +139,33 @@ nav {
 
 footer {
     color: white;
+
 }
+
+.bio {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flexual {
+    flex-direction: row;
+    display: flex;
+    margin: 15px 0 15px 0;
+    flex-wrap: wrap;
+}
+.our-team {
+    margin-bottom: 23px
+}
+.pic {
+    border-radius: 0 17%;
+    height: 250px;
+    max-width: 250px;
+    overflow-hidden;
+
+}
+.bioName {
+    font-size: 2em;
+ }
 
 .btn:hover {
     color: gold;
@@ -154,5 +178,4 @@ footer {
 .app-info {
     margin-top: 3em;
 }
-
 

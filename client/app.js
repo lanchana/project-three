@@ -1,7 +1,6 @@
-
-var angular = require('angular');
+const angular = require('angular');
 require('angular-ui-router');
-// 'use strict';
+
 angular
     .module('projectThree', ['ui.router'])
     .config(uiRouterSetup)
@@ -51,7 +50,6 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
             url: '/user/edit/:id',
             template: '<user-edit></user-edit>'
         });
-
     $urlRouterProvider.otherwise('/');
 }
 

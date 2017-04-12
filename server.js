@@ -60,6 +60,6 @@ app.get('/', function(req, res) {
 });
 
 // Server Port
-app.listen(process.env.PORT || 7000, () => {
+app.listen(process.env.PORT || 5000, () => {
 	console.log('I\'m listening on 5000');
 });

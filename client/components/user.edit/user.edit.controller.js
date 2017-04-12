@@ -12,7 +12,7 @@ function UserEditController($state, UserService, $stateParams) {
 
   function activate(){
     UserService
-      .loadCurrentUser($stateParams.id)
+      .loadCurrentUser($stateParams.id)   // This function loads the user's edit information based off of the user's id.
       .then(function resolve(response) {
 
         vm.current = response.data.user;
@@ -20,18 +20,18 @@ function UserEditController($state, UserService, $stateParams) {
       });
   }
 
-  function editUser(user) {
+  function editUser(user) {  // patch route for the user edit changes
     UserService
-    .updateUser(user)
-    .then(function(response) {
+	    .updateUser(user)
+	    .then(function(response) {
       $state.go('user',({id: vm.userId}));
     });
   }
 
-  function deleteUser(user) {
+  function deleteUser(user) {  // delete route to completely remove the user from the database
     UserService
-    .deleteUser(user)
-    .then(function(response) {
+	    .deleteUser(user)
+	    .then(function(response) {
       $state.go('home');
     });
   }

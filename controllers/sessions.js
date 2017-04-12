@@ -4,23 +4,21 @@ var User = require('../models/user.js');
 var authHelper = require('../helpers/auth.js');
 
 router.get('/login', (req, res) => {
-    res.json({message: 'invaid username or password'});
+    res.json({message: 'Invalid Username or Password.'});
 });
 
 router.post('/login', authHelper.loginUser, (req, res) => {
     if(req.error) {
-        res.json({message: 'invaid username or password'});
+        res.json({message: 'Invalid Username or Password.'});
     }
     else {
-        console.log("inside sessions post action: " + req.session.currentUser)
         res.json({currentUser: req.session.currentUser});
-        // res.redirect('/api/user/' + req.session.currentUser._id + '?error=' + req.error);
     }
 });
 
 router.delete('/', (req, res) => {
     req.session.destroy(() => {
-        res.json({message: "session is deleted"});
+        res.json({message: "session is deleted."});
     });
 });
 

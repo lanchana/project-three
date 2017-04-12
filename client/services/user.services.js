@@ -10,8 +10,8 @@ function UserService($http) {
     self.newUser = {};
     self.createNewUser = createNewUser;
     self.checkUser = checkUser;
-    self.favoriteApps = favoriteApps;
-    self.favDelete = favDelete;
+    self.loadAllFavorites = loadAllFavorites;
+    self.removeFavorite = removeFavorite;
     self.deleteSessions = deleteSessions;
     self.updateUser = updateUser;
     self.loadCurrentUser = loadCurrentUser;
@@ -25,11 +25,11 @@ function UserService($http) {
         return $http.post('/api/sessions/login', currentUser);
     }
 
-    function favoriteApps(id) {
+    function loadAllFavorites(id) {
         return $http.get('/api/applications/user/'+id);
     }
 
-    function favDelete(userId, favId) {
+    function removeFavorite(userId, favId) {
         return $http.delete('/api/applications/user/'+userId+'/fav/'+favId);
     }
 
@@ -49,4 +49,3 @@ function UserService($http) {
         return $http.delete('/api/user/' +user._id);
     }
 }
-

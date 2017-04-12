@@ -33,7 +33,8 @@
         <div class="col-md-12 app-info">
 
           <div class="col-md-6">
-            <a href="{{$ctrl.current.downloadUrl}}" download="{{$ctrl.current.name}}" class="btn waves-effect waves-light">Download <span class="glyphicon glyphicon-download" aria-hidden="true"></span></a>
+
+            <a href="{{favapp.downloadUrl}}" download="{{favapp.downloadUrl}}" class="btn waves-effect waves-light">Download <span class="glyphicon glyphicon-download" aria-hidden="true"></span></a>
             </div>
             <div class="col-md-6">
               <form ng-submit="$ctrl.userFavDelete($ctrl.id, favapp.favId)">
@@ -43,5 +44,5 @@
         </div>
     </div>
 </div>
-</div>
+
 

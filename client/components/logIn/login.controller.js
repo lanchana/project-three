@@ -5,22 +5,21 @@ function UserLogin($stateParams, UserService, $state, $scope) {
     vm.checkUser = {};
     vm.invalid = false;
     vm.userLogin = userLogin;
-    $scope.In = 'blah';
     vm.id = {};
 
     function userLogin(currentUser) {
-        UserService.checkUser(currentUser)
-            .then(function resolve(response){
+        UserService
+            .checkUser(currentUser) // sets the user logging in to the sessions current user
+            .then(function resolve(response){  // If there is an error, log error and go back to login view.
                 if(response.data.message) {
-                    vm.checkUser = {};
+                    vm.checkUser = {};       
                     vm.invalid = true;
                     $state.go('login');
 
-                } else if(response.data.currentUser) {
+                } else if(response.data.currentUser) { // If a current user is returned, 
                     vm.invalid = false;
-                    vm.userLogedIn = true;
                     vm.id = response.data.currentUser._id;
-                    $state.go('user', ({id: vm.id}));
+                    $state.go('user', ({id: vm.id}));  // Goes to the users favorites view via the ID.
                 }
         });
     }

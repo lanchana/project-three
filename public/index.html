@@ -23,7 +23,7 @@
 
   <nav ng-hide="('userEdit' | includedByState) || ('user' | includedByState) || ('userApplications' | includedByState) || ('userAppShow' | includedByState)" class="navbar teal lighten-1 z-depth-1">
     <div class="nav-wrapper">
-      <a  ui-sref="home"><img class="logo brand-logo tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home"src="http://i.imgur.com/R9lRYqc.png" ></a>
+      <a  ui-sref="home"><img class="logo brand-logo tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home"src="http://i.imgur.com/R9lRYqc.png"></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a ui-sref="about" >About</a></li>
@@ -40,6 +40,7 @@
     </div>
   </nav>
 <main>
+    <home ng-show="('home' | includedByState)"></home>
    <ui-view></ui-view>
 </main>
     <footer class="page-footer center teal lighten-1">

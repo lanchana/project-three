@@ -28,5 +28,4 @@ function ApplicationsService($http) {
     function getId() {
         return self.currentUSerId;
     }
-
 }

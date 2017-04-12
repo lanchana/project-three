@@ -62,11 +62,8 @@ UserSchema.pre('save', (next) => {
 });
 
 var CompanyModel = mongoose.model('Company', CompanySchema);
-
 var UserModel = mongoose.model('User', UserSchema);
-
 var ApplicationModel = mongoose.model('App', ApplicationSchema);
-
 var FavoriteModel = mongoose.model('Favorite', FavoriteSchema);
 
 module.exports = {

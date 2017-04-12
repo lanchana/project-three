@@ -2,7 +2,7 @@ ApplicationsController.$inject =['ApplicationsService', '$stateParams'];
 
 function ApplicationsController(ApplicationsService, $stateParams) {
     const vm = this;
-    vm.userId = $stateParams.id;
+    vm.userId = $stateParams.id;  // setting current user ID to $ctrl.userId
     if(vm.userId){
 }
     activate();

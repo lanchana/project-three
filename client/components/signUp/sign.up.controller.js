@@ -15,11 +15,11 @@ function UserSignUpController(UserService, $state){
 			.createNewUser(vm.newUser)
 			.then(function toLogin(response){
 				if(response.data.success){
-				$state.go('login');
+				$state.go('login'); // if the user creation was complete, show the login view
 				}
 				else {
 					vm.created = false;
-					$state.go('signUp');
+					$state.go('signUp'); // if the user was unable to create the account log and error and stay on the sign up view
 				}
 		});
 	}

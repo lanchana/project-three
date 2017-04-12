@@ -6,25 +6,25 @@ function UserFavoriteController(UserService, $stateParams) {
 
     vm.userId = id;
     vm.id = id;
-    vm.userFavDelete = userFavDelete;
+    vm.removeFavorite = removeFavorite;
     vm.deleteSession = deleteSession;
     vm.favApps = {}
 
-    userFavorite();
+    activate();
 
-    function userFavorite() {
+    function activate() {
         UserService
-            .favoriteApps(id)
+            .loadAllFavorites(id)
             .then(function resolve(response) {
                 vm.favApps = response.data.favoriteApp;
             });
     }
 
-    function userFavDelete(userId, favId) {
+    function removeFavorite(userId, favId) {
         UserService
-            .favDelete(userId, favId)
+            .removeFavorite(userId, favId)
             .then(function(response) {
-                userFavorite();
+                activate();
             });
     }
 
@@ -34,7 +34,6 @@ function UserFavoriteController(UserService, $stateParams) {
                 console.log(response);
             });
     }
-
 }
 
 module.exports = UserFavoriteController;

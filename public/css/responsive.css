@@ -1,0 +1,68 @@
+@media only screen and (max-width: 1000px)  {
+    .appShowName {
+        /*text-align: left;*/
+        float: left !important;
+        font-size: 1.4em !important;
+        margin-bottom: 1em;
+    }
+
+    .appShowContainer {
+        margin-top: 1em;
+    }
+
+    .app-info {
+        margin-top: 1em;
+    }
+
+    .img-align {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 600px)  {
+    h2 {
+        margin-top: 5em;
+        font-size: 1.5em !important;
+    }
+
+    .goldfish {
+        color: Gold;
+        font-size: 2em !important;
+        /*width: 100%;*/
+    }
+
+    .carousel {
+        visibility: hidden;
+    }
+
+    .loginMsg {
+        font-size: 17px !important;
+    }
+
+    .companyName {
+        margin: 1em auto;
+        text-align: center;
+        font-size: 1.2em !important;
+    }
+}
+
+@media only screen and (max-width: 400px)  {
+    .loginMsg {
+        font-size: 15px !important;
+    }
+
+    .cursor {
+        font-size: 1.3em;
+    }
+
+    .customImg, .card-image {
+        max-width: 150px;
+        max-height: 150px;
+        min-height: 150px;
+        min-width: 150px;
+    }
+
+    .cardTitle {
+        font-size: 15px;
+    }
+}

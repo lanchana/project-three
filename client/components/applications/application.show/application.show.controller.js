@@ -11,17 +11,19 @@ function ApplicationShowController($stateParams, ApplicationsService, $state) {
         loadCurrentApplication();
     }
 
+// Display the view page for the selected application.
     function loadCurrentApplication() {
         ApplicationsService
-            .loadCurrent($stateParams.companyId, $stateParams.appId )
+            .loadCurrent($stateParams.companyId, $stateParams.appId)
             .then(function resolve(response) {
                 vm.current = response.data.app;
            });
     }
 
+// add current application to your favorites.
     function addFav() {
         ApplicationsService
-            .userFav($stateParams.companyId, $stateParams.appId, $stateParams.userId);
+            .userFav($stateParams.companyId, $stateParams.appId, $stateParams.userId); //calls the services function to favorite the application
             $state.go('applications',({id: vm.userId}));
     }
 }

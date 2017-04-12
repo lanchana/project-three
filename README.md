@@ -33,6 +33,7 @@ Our application is a collection of hosted applications and tools for developers.
   [All Apps Page](http://i.imgur.com/kWK3WT1.jpg)
   [App Show](http://i.imgur.com/hjLQkMb.jpg)
   [User Show](http://i.imgur.com/mdl0DQ3.jpg)
+  ![ERD](http://i.imgur.com/dwnk5W8.jpg)
 
 ## Future Developements
 - Company/Developer sign in.

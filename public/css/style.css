@@ -11,6 +11,15 @@ body {
     color: black !important;
     padding: 0 !important;
     text-align: center !important;
+    /*margin-right: 0 !important;*/
+}
+
+.cardTitle {
+    margin-right: 0 !important;
+}
+
+.cursor:hover {
+    cursor: pointer;
 }
 
 /*bio names*/
@@ -38,6 +47,10 @@ body {
 
 .customBtn {
     margin: 1em 0;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
 
 .invalid {
@@ -112,6 +125,11 @@ nav ul a{
 }
 
 h2 {
+    text-shadow: 2px 2px 4px grey;
+    font-size: 2em;
+}
+
+.appPage {
     text-shadow: 2px 2px 4px grey;
     font-size: 2em;
 }

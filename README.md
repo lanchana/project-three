@@ -13,16 +13,16 @@ Our application is a collection of hosted applications and tools for developers.
 
 ## Group-Members
 - Felicia
-	[Github](https://github.com/neysa21)
+	[Github](https://github.com/neysa21) |
 	[Website](//)
 - Ryan
-	[Github](https://github.com/Ryan-Wilkinson)
+	[Github](https://github.com/Ryan-Wilkinson) |
 	[Website](http://lazer-lizards-86830.bitballoon.com/)
 - Lanchana
-	[Github](https://github.com/lanchana)
+	[Github](https://github.com/lanchana) |
 	[Website](//)
 - Rush
-	[Github](https://github.com/RushMyers)
+	[Github](https://github.com/RushMyers) |
 	[Website](http://rushdavidmyers.bitballoon.com/)
 
 ## Wireframes + ERD

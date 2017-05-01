@@ -17,7 +17,7 @@ Our application is a collection of hosted applications and tools for developers.
 	[Website](http://feliciadev.bitballoon.com/)
 - Ryan
 	[Github](https://github.com/Ryan-Wilkinson) |
-	[Website](http://lazer-lizards-86830.bitballoon.com/)
+	[Website](http://ryan-wilkinson.bitballoon.com/)
 - Lanchana
 	[Github](https://github.com/lanchana) |
 	[Website](//)

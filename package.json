@@ -13,18 +13,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ryan-Wilkinson/project3.git"
+    "url": "git+https://github.com/lanchana/project-three.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Ryan-Wilkinson/project3/issues"
+    "url": "https://github.com/lanchana/project-three/issues"
   },
-  "homepage": "https://github.com/Ryan-Wilkinson/project3#readme",
-  "devDependencies": {},
+  "homepage": "https://github.com/lanchana/project-three#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.0.0",
+    "babel-loader": "^5.3.2"
+  },
   "dependencies": {
     "angular-ui-router": "^0.4.2",
+    "babel": "^6.23.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.1",
     "connect-mongodb-session": "^1.3.0",
@@ -37,6 +42,6 @@
     "method-override": "^2.3.8",
     "mongoose": "^4.9.3",
     "morgan": "^1.8.1",
-    "webpack": "^2.3.3"
+    "webpack": "^2.5.1"
   }
 }
